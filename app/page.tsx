@@ -7,6 +7,7 @@ import { ContactMarquee } from "./components/ContactMarquee";
 import { Features } from "./components/Features";
 import { Hero } from "./components/Hero";
 import { Intro } from "./components/Intro";
+import { Marquee } from "./components/Marquee";
 import { Projects } from "./components/Projects";
 import { ProjectsMarquee } from "./components/ProjectsMarquee";
 import { Skills } from "./components/Skills";
@@ -16,6 +17,7 @@ export default function Home() {
   return (
     <main className="w-full h-full flex flex-col items-center justify-center bg-neutral-900">
       <Hero />
+      <Marquee />
       <Intro />
       <AboutMarquee />
       <About />
