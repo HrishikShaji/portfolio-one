@@ -4,18 +4,34 @@ import gsap from "gsap";
 import { useEffect } from "react";
 
 export const Marquee = () => {
-	let currentScroll = 0;
-	let isScrollingDown = true;
 	useEffect(() => {
-		let tween = gsap
-			.to(".marquee-part", {
-				xPercent: -100,
-				repeat: -1,
-				duration: 2,
-				ease: "linear",
-			})
-			.totalProgress(0.5);
+		let currentScroll = 0;
+		let isScrollingDown = true;
+
+		let tween = gsap.to(".marquee-part", {
+			xPercent: -100,
+			repeat: -1,
+			duration: 2,
+			ease: "linear",
+		});
+
 		gsap.set(".marquee-inner", { xPercent: 0 });
+
+		window.addEventListener("scroll", function() {
+			const newScroll = window.scrollY;
+
+			if (newScroll > currentScroll) {
+				isScrollingDown = true;
+			} else {
+				isScrollingDown = false;
+			}
+
+			gsap.to(tween, {
+				timeScale: isScrollingDown ? 1 : -1,
+			});
+
+			currentScroll = newScroll;
+		});
 	}, []);
 
 	return (
