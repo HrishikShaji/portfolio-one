@@ -10,8 +10,7 @@ export const Marquee = () => {
 
     let tween = gsap.to(".marquee-part", {
       xPercent: -100,
-      repeat: -1,
-      duration: 2,
+      duration: 1,
       ease: "linear",
     });
 
