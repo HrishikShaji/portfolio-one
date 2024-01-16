@@ -21,7 +21,7 @@ export const SkillsMarquee = () => {
 				trigger: slider.current,
 				start: "top bottom",
 				end: "top top",
-				scrub: true,
+				scrub: 5,
 				markers: true,
 				onUpdate: (e) => (direction = e.direction * -1),
 			},
@@ -43,19 +43,29 @@ export const SkillsMarquee = () => {
 
 	return (
 		<div className="absolute">
-			<div ref={slider} className="relative whitespace-nowrap">
-				<p
+			<div ref={slider} className="relative ">
+				<div
 					ref={firstText}
-					className="text-7xl relative m-0  text-white font-bold"
+					className="text-7xl w-screen relative m-0 flex text-white font-semibold"
 				>
-					MY SKILLS MY SKILLS MY SKILLS MY SKILLS
-				</p>
-				<p
+					<h1>MY SKILLS</h1>
+					<h1>MY SKILLS</h1>
+					<h1 className="text-red-500">MY SKILLS</h1>
+					<h1>MY SKILLS</h1>
+					<h1>MY SKILLS</h1>
+					<h1>MY SKILLS</h1>
+				</div>
+				<div
 					ref={secondText}
-					className="text-7xl text-white font-bold absolute left-[100%] top-0"
+					className="text-7xl text-white w-screen font-semibold flex  absolute left-[100%]  top-0"
 				>
-					MY SKILLS MY SKILLS MY SKILLS MY SKILLS
-				</p>
+					<h1>MY SKILLS</h1>
+					<h1>MY SKILLS</h1>
+					<h1 className="text-red-500">MY SKILLS</h1>
+					<h1>MY SKILLS</h1>
+					<h1>MY SKILLS</h1>
+					<h1>MY SKILLS</h1>
+				</div>
 			</div>
 		</div>
 	);
