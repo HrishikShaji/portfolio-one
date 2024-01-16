@@ -1,47 +1,75 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { useEffect } from "react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
-export const Marquee = () => {
-  useEffect(() => {
-    let currentScroll = 0;
-    let isScrollingDown = true;
+interface MarqueeProps {
+	text: string;
+	number: number;
+}
 
-    let tween = gsap.to(".marquee-part", {
-      xPercent: -100,
-      duration: 1,
-      ease: "linear",
-    });
+export const Marquee: React.FC<MarqueeProps> = ({ text, number }) => {
+	const firstText = useRef(null);
+	const secondText = useRef(null);
+	const slider = useRef(null);
 
-    gsap.set(".marquee-inner", { xPercent: 0 });
+	let xPercent = 0;
+	let direction = -1;
 
-    window.addEventListener("scroll", function () {
-      const newScroll = window.scrollY;
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
+		requestAnimationFrame(animation);
 
-      if (newScroll > currentScroll) {
-        isScrollingDown = true;
-      } else {
-        isScrollingDown = false;
-      }
+		gsap.to(slider.current, {
+			scrollTrigger: {
+				trigger: slider.current,
+				start: "top bottom",
+				end: "top top",
+				scrub: 5,
+				markers: true,
+				onUpdate: (e) => (direction = e.direction * -1),
+			},
+		});
+	}, []);
 
-      gsap.to(tween, {
-        timeScale: isScrollingDown ? 1 : -1,
-      });
+	const animation = () => {
+		if (xPercent <= -100) {
+			xPercent = 0;
+		}
+		if (xPercent > 0) {
+			xPercent = -100;
+		}
+		gsap.set(firstText.current, { xPercent: xPercent });
+		gsap.set(secondText.current, { xPercent: xPercent });
+		xPercent += 0.1 * direction;
+		requestAnimationFrame(animation);
+	};
 
-      currentScroll = newScroll;
-    });
-  }, []);
-
-  return (
-    <div className="marquee text-white">
-      <div className="marquee-inner">
-        <div className="marquee-part text-7xl">
-          ABOUT ME<span className="text-red-500"> ABOUT ME</span>
-        </div>
-        <div className="marquee-part text-7xl">ABOUT ME ABOUT ME</div>
-        <div className="marquee-part text-7xl">ABOUT ME ABOUT ME</div>
-      </div>
-    </div>
-  );
+	return (
+		<div className="absolute">
+			<div ref={slider} className="relative ">
+				<div
+					ref={firstText}
+					className="text-7xl w-screen relative m-0 flex text-white font-semibold"
+				>
+					{Array.from({ length: number }).map((_, i) => (
+						<h1 key={i} className={i === 2 ? "text-red-500" : ""}>
+							{text}
+						</h1>
+					))}
+				</div>
+				<div
+					ref={secondText}
+					className="text-7xl text-white w-screen font-semibold flex  absolute left-[100%]  top-0"
+				>
+					{Array.from({ length: number }).map((_, i) => (
+						<h1 key={i} className={i === 2 ? "text-red-500" : ""}>
+							{text}
+						</h1>
+					))}
+				</div>
+			</div>
+		</div>
+	);
 };

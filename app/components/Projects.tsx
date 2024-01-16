@@ -1,3 +1,9 @@
+import { Marquee } from "./Marquee";
+
 export const Projects = () => {
-  return <div></div>;
+	return (
+		<div className="w-full relative">
+			<Marquee text="MY PROJECTS" number={5} />
+		</div>
+	);
 };
