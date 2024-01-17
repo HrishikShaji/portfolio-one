@@ -2,7 +2,7 @@ import { Marquee } from "./Marquee";
 
 export const About = () => {
 	return (
-		<div>
+		<div className="">
 			<Marquee text="ABOUT ME" number={5} />
 			<div className="p-5 text-white text-xl">
 				{` My name is Hrishik Shaji.I'm 23 years old.I'm from

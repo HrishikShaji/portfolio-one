@@ -47,7 +47,7 @@ export const Marquee: React.FC<MarqueeProps> = ({ text, number }) => {
 	};
 
 	return (
-		<div className="absolute">
+		<div className="">
 			<div ref={slider} className="relative ">
 				<div
 					ref={firstText}
