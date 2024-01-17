@@ -1,15 +1,34 @@
-const data = ["CLEAN CODE", "REUSABLE", "EFFICIENT"];
+const data = [
+  {
+    title: "EFFICIENT",
+    slope: "1deg",
+  },
+
+  {
+    title: "CLEAN CODE",
+    slope: "-1deg",
+  },
+  {
+    title: "RESPONSIVE",
+    slope: "2deg",
+  },
+  {
+    title: "GOOD",
+    slope: "-2deg",
+  },
+];
 
 export const Parallax = () => {
   return (
-    <div className=" mt-[50vh] flex flex-col gap-10 mb-[50vh]  ">
-      {data.map((item) => (
+    <div className="  flex flex-col gap-10 h-full ">
+      {data.map((item, i) => (
         <div
-          className="sticky top-[33%] h-[300px] w-[600px] bg-orange-500  rounded-md flex justify-center items-center"
-          key={item}
+          className={`sticky border-2 border-white h-[300px]  w-[600px] bg-orange-500  rounded-md flex justify-center items-center`}
+          style={{ top: `${33 + i * 3}%`, rotate: item.slope }}
+          key={i}
         >
           <div className="rounded-md flex justify-center items-center">
-            {item}
+            {item.title}
           </div>
         </div>
       ))}
