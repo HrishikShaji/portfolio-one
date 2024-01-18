@@ -11,17 +11,16 @@ import { Projects } from "./components/Projects";
 import { Skills } from "./components/Skills";
 
 export default function Home() {
-	return (
-		<main className="w-full h-full flex flex-col  items-center justify-center bg-neutral-900">
-			<Parallax />
-			<ProjectCard />
-			<Hero />
-			<Intro />
-			<About />
-			<Projects />
-			<Features />
-			<Skills />
-			<Contact />
-		</main>
-	);
+  return (
+    <main className="w-full h-full flex flex-col  items-center justify-center bg-neutral-900">
+      <Parallax />
+      <Hero />
+      <Intro />
+      <About />
+      <Projects />
+      <Features />
+      <Skills />
+      <Contact />
+    </main>
+  );
 }
