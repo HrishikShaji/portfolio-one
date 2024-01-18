@@ -8,20 +8,21 @@ export const ProjectCard = () => {
 
 	useEffect(() => {
 		gsap.registerPlugin(ScrollTrigger);
-		gsap.fromTo(
-			projectCardRef.current,
-			{ scaleX: 0 },
-			{
-				scaleX: 1,
-				scrollTrigger: {
-					trigger: projectCardRef.current,
-					start: "top 90%",
-					end: "top 40%",
-					scrub: 1,
-					toggleActions: "play reverse none none",
-				},
+		const tl = gsap.timeline({
+			scrollTrigger: {
+				trigger: projectCardRef.current,
+				start: "top 90%",
+				end: "top 40%",
+				scrub: 1,
 			},
-		);
+		});
+
+		tl.from(projectCardRef.current, { scale: 0 })
+			.to(projectCardRef.current, {
+				scale: 1,
+				transformOrigin: "right bottom",
+			})
+			.to(projectCardRef.current, { scale: 0, transformOrigin: "left top" });
 	}, []);
 	return (
 		<div className="flex flex-col w-full h-full gap-4">
