@@ -27,7 +27,6 @@ export const Marquee: React.FC<MarqueeProps> = ({ text, number }) => {
 				start: "top bottom",
 				end: "top top",
 				scrub: 5,
-				markers: true,
 				onUpdate: (e) => (direction = e.direction * -1),
 			},
 		});
