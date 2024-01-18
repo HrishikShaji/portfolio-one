@@ -23,7 +23,7 @@ export const Parallax = () => {
 			{data.map((item, i) => (
 				<div
 					className={`sticky border-2 border-white h-[300px]  w-[600px] bg-orange-500  rounded-md flex justify-center items-center`}
-					style={{ top: `${33 + item.id * 3}%`, rotate: item.slope }}
+					style={{ top: `${33 + item.id * 10}%`, rotate: item.slope }}
 					key={i}
 				>
 					<div className="rounded-md flex justify-center items-center">

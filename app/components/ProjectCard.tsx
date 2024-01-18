@@ -19,21 +19,29 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ index }) => {
 				end: "top top",
 				scrub: true,
 				markers: true,
+				onToggle: (self) => {
+					console.log(`index is${index}`, self.isActive);
+				},
 			},
 		});
 
-		tl.from(projectCardRef.current, { scale: 0.25 })
+		tl.from(projectCardRef.current, {
+			scale: 0.25,
+			transformOrigin: "right top",
+		})
 			.to(projectCardRef.current, {
 				scale: 1,
-				transformOrigin: "right top",
 			})
 			.to(projectCardRef.current, { scale: 0, transformOrigin: "left top" });
 	}, []);
 	return (
 		<div
 			ref={containerRef}
-			className="flex sticky  flex-col w-full h-full gap-4"
-			style={{ top: index === 0 ? "0px" : `${100 * index}px` }}
+			className="flex flex-col w-full h-[100vh] gap-4"
+			style={{
+				position: "sticky",
+				top: index === 0 ? "0px" : `${100 * index}px`,
+			}}
 		>
 			<div className="flex border-b-2 text-white items-center px-4 h-[100px] border-white justify-between ">
 				<h1 className="text-3xl">TITLE</h1>
@@ -41,7 +49,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ index }) => {
 			</div>
 			<div
 				ref={projectCardRef}
-				className="h-[100vh] w-full bg-neutral-500 rounded-md"
+				className="h-full w-full bg-neutral-500 rounded-md"
 			/>
 		</div>
 	);
