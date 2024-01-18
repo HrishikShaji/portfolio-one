@@ -5,8 +5,8 @@ export const Projects = () => {
 	return (
 		<div className="">
 			<Marquee text="MY PROJECTS" number={5} />
-			<div className=" h-full flex flex-col gap-10 w-full">
-				{Array.from({ length: 5 }).map((_, i) => (
+			<div className="">
+				{Array.from({ length: 10 }).map((_, i) => (
 					<ProjectCard key={i} index={i} />
 				))}
 			</div>

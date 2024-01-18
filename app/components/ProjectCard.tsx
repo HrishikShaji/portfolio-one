@@ -37,11 +37,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ index }) => {
 	return (
 		<div
 			ref={containerRef}
-			className="flex flex-col w-full h-[100vh] gap-4"
-			style={{
-				position: "sticky",
-				top: index === 0 ? "0px" : `${100 * index}px`,
-			}}
+			className="card sticky h-[100vh] w-full top-0 "
+			style={{ transform: `translateY(${index * 100}px)` }}
 		>
 			<div className="flex border-b-2 text-white items-center px-4 h-[100px] border-white justify-between ">
 				<h1 className="text-3xl">TITLE</h1>
