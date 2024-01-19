@@ -10,15 +10,15 @@ interface ProjectCardProps {
 export const ProjectCard: React.FC<ProjectCardProps> = ({ index }) => {
 	const projectCardRef = useRef<HTMLDivElement>(null);
 	const containerRef = useRef<HTMLDivElement>(null);
-	const titleRef = useRef<HTMLDivElement>(null);
 	useEffect(() => {
 		const nextCard = document.getElementById(`card-${index + 1}`);
 		gsap.registerPlugin(ScrollTrigger);
 		const tl = gsap.timeline({
 			scrollTrigger: {
-				trigger: projectCardRef.current,
+				trigger: containerRef.current,
 				start: "top bottom",
-				scrub: true,
+				end: "top top",
+				scrub: 1,
 			},
 		});
 
@@ -37,11 +37,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ index }) => {
 			{
 				scale: 0,
 				transformOrigin: "left top",
+				backgroundColor: "red",
 				scrollTrigger: {
 					trigger: nextCard,
 					start: "top bottom",
+					end: "top top",
 					markers: true,
-					scrub: true,
+					scrub: 1,
 				},
 			},
 		);
@@ -50,8 +52,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ index }) => {
 		<div
 			ref={containerRef}
 			id={`card-${index}`}
-			className="card sticky flex flex-col gap-10 p-4 h-[100vh] w-full top-0 "
-			style={{ transform: `translateY(${index * 100}px)` }}
+			className="card  flex flex-col gap-10 p-4  h-[100vh] w-full top-0 "
 		>
 			<div className="flex border-b-2 text-white items-center px-4 h-[100px] border-white justify-between ">
 				<h1 className="text-3xl">TITLE</h1>
