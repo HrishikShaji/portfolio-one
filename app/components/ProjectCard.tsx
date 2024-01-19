@@ -12,6 +12,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ index }) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	useEffect(() => {
 		const nextCard = document.getElementById(`card-${index + 1}`);
+		const nextProject = document.getElementById(`project-${index + 1}`);
 		gsap.registerPlugin(ScrollTrigger);
 		const tl = gsap.timeline({
 			scrollTrigger: {
@@ -33,9 +34,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ index }) => {
 			},
 		).fromTo(
 			projectCardRef.current,
-			{ scale: 1 },
+			{ scaleX: 1 },
 			{
-				scale: 0,
+				scaleX: 0,
 				transformOrigin: "left top",
 				backgroundColor: "red",
 				scrollTrigger: {
@@ -54,11 +55,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ index }) => {
 			id={`card-${index}`}
 			className="card  flex flex-col gap-10 p-4  h-[100vh] w-full top-0 "
 		>
-			<div className="flex border-b-2 text-white items-center px-4 h-[100px] border-white justify-between ">
+			<div className="flex border-b-2 text-white items-center  h-[100px] border-white justify-between ">
 				<h1 className="text-3xl">TITLE</h1>
 				<h1 className="text-3xl">DESCRIPTION</h1>
 			</div>
 			<div
+				id={`project-${index}`}
 				ref={projectCardRef}
 				className="h-[calc(100vh-100px)]  w-full bg-neutral-500 rounded-md"
 			/>
