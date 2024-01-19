@@ -11,19 +11,18 @@ import { ProjectCard } from "./components/ProjectCard";
 import { Projects } from "./components/Projects";
 import { Skills } from "./components/Skills";
 import { Cards } from "./components/Cards";
+import { Sample } from "./components/Sample";
 
 export default function Home() {
-	return (
-		<main className="w-full h-full flex flex-col  items-center justify-center bg-neutral-900">
-			<Cards />
-			<Parallax />
-			<Hero />
-			<Intro />
-			<About />
-			<Projects />
-			<Features />
-			<Skills />
-			<Contact />
-		</main>
-	);
+  return (
+    <main className="w-full h-full flex flex-col  items-center justify-center bg-neutral-900">
+      <Hero />
+      <Intro />
+      <About />
+      <Projects />
+      <Features />
+      <Skills />
+      <Contact />
+    </main>
+  );
 }
