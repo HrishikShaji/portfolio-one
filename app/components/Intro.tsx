@@ -1,80 +1,52 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import gsap from "gsap";
 
 export const Intro = () => {
-  const firstBar = useRef<HTMLDivElement>(null);
-  const secondBar = useRef<HTMLDivElement>(null);
-  const thirdBar = useRef<HTMLDivElement>(null);
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    gsap.fromTo(
-      firstBar.current,
-      { scaleX: 0 },
-      {
-        scaleX: 1,
+    document.querySelectorAll(".bar").forEach((bar) => {
+      const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: firstBar.current,
+          trigger: bar,
           start: "top 90%",
           end: "top 40%",
           scrub: 1,
-          toggleActions: "play reverse none none",
         },
-      },
-    );
-    gsap.fromTo(
-      secondBar.current,
-      { scaleX: 0 },
-      {
-        scaleX: 1,
-        scrollTrigger: {
-          trigger: secondBar.current,
-          start: "top 90%",
-          end: "top 40%",
-          scrub: 1,
-          toggleActions: "play reverse none none",
+      });
+      tl.fromTo(
+        bar,
+        { scaleX: 0, opacity: 0, transformOrigin: "left" },
+        {
+          scaleX: 1,
+          opacity: 1,
         },
-      },
-    );
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: thirdBar.current,
-        start: "top 90%",
-        end: "top 40%",
-        scrub: 1,
-      },
+      ).to(bar, { scaleX: 0, opacity: 0, transformOrigin: "right" });
     });
-    tl.fromTo(
-      thirdBar.current,
-      { scaleX: 0, transformOrigin: "left" },
-      {
-        scaleX: 1,
-      },
-    ).to(thirdBar.current, { scaleX: 0, transformOrigin: "right" });
   }, []);
   return (
-    <div className="container h-full p-5 pb-20 text-white w-full bg-neutral-900 gap-1 flex flex-col justify-center items-center">
+    <div className="container h-full p-5 pb-20 text-white w-full bg-neutral-900  flex flex-col justify-center items-center">
       <div className="relative w-full justify-center flex items-center">
-        <div
-          ref={firstBar}
-          className="leftBar w-full  origin-left h-full bg-white mix-blend-difference absolute "
-        />
+        <div className="h-full absolute w-full flex flex-col mix-blend-difference">
+          <div className="leftBar bar w-full  origin-left h-[50%] bg-white " />
+          <div className="leftBar bar w-full  origin-left h-[50%] bg-white" />
+        </div>
         <h1 className="text-9xl font-extrabold">I CREATE</h1>
       </div>
       <div className="relative w-full justify-center flex items-center">
-        <div
-          ref={secondBar}
-          className="rightBar w-full origin-right  h-full bg-white mix-blend-difference absolute "
-        />
+        <div className="h-full absolute w-full flex flex-col mix-blend-difference">
+          <div className="leftBar bar w-full  origin-left h-[50%] bg-white " />
+          <div className="leftBar bar w-full  origin-left h-[50%] bg-white" />
+        </div>
         <h1 className="text-9xl  font-extrabold">COOL</h1>
       </div>
       <div className="relative w-full justify-center flex items-center">
-        <div
-          ref={thirdBar}
-          className="leftBar w-full  flex   h-full bg-white mix-blend-difference absolute "
-        />
+        <div className="h-full absolute w-full flex flex-col mix-blend-difference">
+          <div className="leftBar bar w-full  origin-left h-[50%] bg-white " />
+          <div className="leftBar bar w-full  origin-left h-[50%] bg-white" />
+        </div>
         <h1 className="text-9xl  font-extrabold">WEB APPS</h1>
       </div>
     </div>
