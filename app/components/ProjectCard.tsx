@@ -43,7 +43,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ index }) => {
 					trigger: nextCard,
 					start: "top bottom",
 					end: "top top",
-					markers: true,
 					scrub: 1,
 				},
 			},
