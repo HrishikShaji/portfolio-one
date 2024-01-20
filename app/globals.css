@@ -10,7 +10,9 @@
 h1 {
   font-family: "aventa";
 }
-
+.custom-clip {
+  clip-path: polygon(0 0%, 100% 0, 100% 95%, 0 95%);
+}
 .marquee {
   position: relative;
   padding: 30px 0;
