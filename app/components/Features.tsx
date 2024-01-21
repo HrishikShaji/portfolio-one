@@ -2,14 +2,18 @@
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const Features = () => {
+	const [isMounted, setIsMounted] = useState(false)
+	useEffect(() => {
+		setIsMounted(true)
+	}, [])
 	useEffect(() => {
 		gsap.registerPlugin(ScrollTrigger);
 		const pin = document.querySelector(".pin-ref");
 		const tar = document.querySelector(".target-ref");
-		if (pin && tar) {
+		if (isMounted) {
 			gsap.to(pin, {
 				scrollTrigger: {
 					trigger: tar,
@@ -21,7 +25,7 @@ export const Features = () => {
 			});
 			console.log(pin, tar);
 		}
-	}, []);
+	}, [isMounted]);
 
 	return (
 		<div className="h-full w-full flex text-white ">
