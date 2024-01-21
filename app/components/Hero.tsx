@@ -7,32 +7,36 @@ import { useTypewriter } from "../hooks/useTypewriter";
 import { Code } from "./Code";
 
 export const Hero = () => {
-  const splitWord = () => {
-    return word.split("").map((letter, i) => (
-      <div
-        className="text-animate translate-y-[220px] transition transform duration-700"
-        key={i}
-      >
-        {letter}
-      </div>
-    ));
-  };
+	const [code, setCode] = useState(true);
+	const splitWord = () => {
+		return word.split("").map((letter, i) => (
+			<div
+				className="text-animate translate-y-[220px] transition transform duration-700"
+				key={i}
+			>
+				{letter}
+			</div>
+		));
+	};
 
-  useEffect(() => {
-    gsap.to(".text-animate", {
-      y: 0,
-      stagger: 0.05,
-      duration: 0.05,
-      ease: "bounce",
-    });
-  }, []);
+	useEffect(() => {
+		gsap.to(".text-animate", {
+			y: 0,
+			stagger: 0.05,
+			duration: 0.05,
+			ease: "bounce",
+		});
+	}, []);
 
-  return (
-    <div className="h-screen w-full flex justify-center text-white flex-col gap-40 items-center">
-      <div className="flex flex-col gap-4 items-center">
-        <Code />
-        <div className="flex">
-          {/*	<motion.h1
+	return (
+		<div className="h-screen w-full flex justify-center text-white flex-col gap-40 items-center">
+			<div className="flex flex-col gap-4 items-center">
+				{code ? (
+					<Code setCode={setCode} />
+				) : (
+					<>
+						<div className="flex">
+							{/*	<motion.h1
 						initial={{ x: -1000, opacity: 0 }}
 						animate={{ x: 0, opacity: 1 }}
 						transition={{ duration: 1, delay: word.split("").length * 0.05 }}
@@ -50,20 +54,22 @@ export const Hero = () => {
 					>
 						{`</h1>`}
 					</motion.h1>*/}
-        </div>
-        <h1 className="text-6xl font-bold ">
-          <span className="text-blue-500">{`<h2>`}</span>
-          {`I'm a Web Developer.`}
+						</div>
+						<h1 className="text-6xl font-bold ">
+							<span className="text-blue-500">{`<h2>`}</span>
+							{`I'm a Web Developer.`}
 
-          <span className="text-blue-500">{`<h2/>`}</span>
-        </h1>
-      </div>
-      <h1 className="text-2xl font-bold ">
-        <span className="text-blue-500">{`<button>`}</span>
-        {`Let's Talk.`}
+							<span className="text-blue-500">{`<h2/>`}</span>
+						</h1>
+						<h1 className="text-2xl font-bold ">
+							<span className="text-blue-500">{`<button>`}</span>
+							{`Let's Talk.`}
 
-        <span className="text-blue-500">{`<button/>`}</span>
-      </h1>
-    </div>
-  );
+							<span className="text-blue-500">{`<button/>`}</span>
+						</h1>
+					</>
+				)}
+			</div>
+		</div>
+	);
 };
