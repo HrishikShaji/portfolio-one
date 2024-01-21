@@ -16,12 +16,12 @@ import { Spacer } from "./components/Spacer";
 
 export default function Home() {
 	return (
-		<main className="w-full h-full  flex flex-col  items-center justify-center bg-neutral-900">
+		<main className="    bg-neutral-900">
 			<Hero />
+			<Features />
 			<Intro />
 			<About />
 			<Projects />
-			<Features />
 			<Skills />
 			<Contact />
 		</main>
