@@ -8,6 +8,7 @@ interface Props {
 export const useTypewriter = ({ input, speed }: Props) => {
 	const [text, setText] = useState("");
 	const [index, setIndex] = useState(0);
+	const [isRunning, setIsRunning] = useState(true);
 	const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
 	function nextChar() {
@@ -15,6 +16,8 @@ export const useTypewriter = ({ input, speed }: Props) => {
 			const newChar = input.charAt(index);
 			setIndex((prev) => prev + 1);
 			return newChar;
+		} else if (index === input.length) {
+			setIsRunning(false);
 		}
 		return ""; // Return an empty string when the word is fully typed
 	}
@@ -30,7 +33,7 @@ export const useTypewriter = ({ input, speed }: Props) => {
 		}, speed); // Adjust the interval duration to your preference (e.g., 100 milliseconds)
 
 		return () => clearInterval(intervalRef.current);
-	}, [index]);
+	}, [index, isRunning]);
 
-	return { text };
+	return { text, isRunning };
 };
