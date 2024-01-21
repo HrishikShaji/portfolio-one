@@ -1,14 +1,18 @@
 import { useEffect, useRef, useState } from "react";
 
-export const useTypewriter = () => {
+interface Props {
+	input: string;
+	speed: number;
+}
+
+export const useTypewriter = ({ input, speed }: Props) => {
 	const [text, setText] = useState("");
 	const [index, setIndex] = useState(0);
 	const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
-	const word = "HRISHIK";
 
 	function nextChar() {
-		if (index < word.length) {
-			const newChar = word.charAt(index);
+		if (index < input.length) {
+			const newChar = input.charAt(index);
 			setIndex((prev) => prev + 1);
 			return newChar;
 		}
@@ -23,7 +27,7 @@ export const useTypewriter = () => {
 			} else {
 				setText((prev) => prev + newChar);
 			}
-		}, 1000); // Adjust the interval duration to your preference (e.g., 100 milliseconds)
+		}, speed); // Adjust the interval duration to your preference (e.g., 100 milliseconds)
 
 		return () => clearInterval(intervalRef.current);
 	}, [index]);
