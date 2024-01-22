@@ -1,11 +1,11 @@
 import { Marquee } from "./Marquee";
 
 export const About = () => {
-	return (
-		<div className="">
-			<Marquee text="ABOUT ME" number={3} colorIndex={2} />
-			<div className="p-5 text-white text-xl">
-				{` My name is Hrishik Shaji.I'm 23 years old.I'm from
+  return (
+    <div className="pb-40 w-full flex flex-col gap-10 ">
+      <Marquee text="ABOUT ME" number={3} colorIndex={2} />
+      <div className=" text-white px-10 text-2xl">
+        {` My name is Hrishik Shaji.I'm 23 years old.I'm from
       Thrissur,Kerala,India.I'm a son,a brother and a good friend for a handful
       of people. After 10th, i took computer science for plus two because i
       loved computers since i grew up playing computer games. As for my Degree i
@@ -23,7 +23,7 @@ export const About = () => {
       obstacle stands no more and i will remove them as long as i wish to.Also i
       am hardworking,willing to learn new technologies,exceptionally adaptive to
       all kinds of scenarios.`}
-			</div>
-		</div>
-	);
+      </div>
+    </div>
+  );
 };
