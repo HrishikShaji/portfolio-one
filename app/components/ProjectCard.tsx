@@ -1,25 +1,21 @@
 "use client";
 import gsap from "gsap";
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import { useMount } from "../hooks/useMount";
 
 interface ProjectCardProps {
 	index: number;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ index }) => {
-	const [isMounted, setIsMounted] = useState(false);
-
+	const { isMounted } = useMount();
 	useEffect(() => {
-		setIsMounted(true);
-	}, []);
-
-	useEffect(() => {
-		const nextCard = document.getElementById(`card-${index + 1}`);
-		const card = document.getElementById(`card-${index}`);
-		const project = document.getElementById(`project-${index}`);
 		gsap.registerPlugin(ScrollTrigger);
 		if (isMounted) {
+			const nextCard = document.getElementById(`card-${index + 1}`);
+			const card = document.getElementById(`card-${index}`);
+			const project = document.getElementById(`project-${index}`);
 			const tl = gsap.timeline({
 				scrollTrigger: {
 					trigger: card,

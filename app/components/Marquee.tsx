@@ -18,24 +18,9 @@ export const Marquee: React.FC<MarqueeProps> = ({
 	const firstText = useRef(null);
 	const secondText = useRef(null);
 	const slider = useRef(null);
+	const directionRef = useRef(-1); // Use useRef to store direction value
 
 	let xPercent = 0;
-	let direction = -1;
-
-	useEffect(() => {
-		gsap.registerPlugin(ScrollTrigger);
-		requestAnimationFrame(animation);
-
-		gsap.to(slider.current, {
-			scrollTrigger: {
-				trigger: slider.current,
-				start: "top bottom",
-				end: "top top",
-				scrub: 5,
-				onUpdate: (e) => (direction = e.direction * -1),
-			},
-		});
-	}, []);
 
 	const animation = () => {
 		if (xPercent <= -100) {
@@ -46,13 +31,29 @@ export const Marquee: React.FC<MarqueeProps> = ({
 		}
 		gsap.set(firstText.current, { xPercent: xPercent });
 		gsap.set(secondText.current, { xPercent: xPercent });
-		xPercent += 0.1 * direction;
+		xPercent += 0.1 * directionRef.current; // Use directionRef
 		requestAnimationFrame(animation);
 	};
+	useEffect(() => {
+		gsap.registerPlugin(ScrollTrigger);
+		requestAnimationFrame(animation);
+
+		gsap.to(slider.current, {
+			scrollTrigger: {
+				trigger: slider.current,
+				start: "top bottom",
+				end: "top top",
+				scrub: 5,
+				onUpdate: (e) => {
+					directionRef.current = e.direction * -1; // Update directionRef
+				},
+			},
+		});
+	}, []);
 
 	return (
 		<div className="">
-			<div ref={slider} className="relative ">
+			<div ref={slider} className="relative overflow-hidden">
 				<div
 					ref={firstText}
 					className="text-9xl w-full overflow-hidden relative m-0 flex text-white font-semibold"

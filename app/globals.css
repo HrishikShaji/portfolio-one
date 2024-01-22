@@ -13,28 +13,3 @@ h1 {
 .custom-clip {
   clip-path: polygon(0 0%, 100% 0, 100% 95%, 0 95%);
 }
-.marquee {
-  position: relative;
-  padding: 30px 0;
-  overflow: hidden;
-}
-
-.marquee-inner {
-  display: flex;
-  width: fit-content;
-  flex: auto;
-  flex-direction: row;
-}
-
-.marquee-part {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  padding: 0 4px;
-}
-
-::-webkit-scrollbar {
-  width: 0px;
-  height: 0px;
-  background: transparent;
-}
