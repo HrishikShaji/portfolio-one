@@ -18,8 +18,8 @@ export default function Home() {
 	return (
 		<main className="    bg-neutral-900">
 			<Hero />
-			<Features />
 			<Intro />
+			<Features />
 			<About />
 			<Projects />
 			<Skills />

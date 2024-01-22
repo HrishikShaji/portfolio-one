@@ -7,9 +7,14 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 interface MarqueeProps {
 	text: string;
 	number: number;
+	colorIndex: number;
 }
 
-export const Marquee: React.FC<MarqueeProps> = ({ text, number }) => {
+export const Marquee: React.FC<MarqueeProps> = ({
+	text,
+	number,
+	colorIndex,
+}) => {
 	const firstText = useRef(null);
 	const secondText = useRef(null);
 	const slider = useRef(null);
@@ -50,20 +55,20 @@ export const Marquee: React.FC<MarqueeProps> = ({ text, number }) => {
 			<div ref={slider} className="relative ">
 				<div
 					ref={firstText}
-					className="text-7xl w-screen relative m-0 flex text-white font-semibold"
+					className="text-9xl w-full overflow-hidden relative m-0 flex text-white font-semibold"
 				>
 					{Array.from({ length: number }).map((_, i) => (
-						<h1 key={i} className={i === 2 ? "text-red-500" : ""}>
+						<h1 key={i} className={i === colorIndex ? "text-red-500" : ""}>
 							{text}
 						</h1>
 					))}
 				</div>
 				<div
 					ref={secondText}
-					className="text-7xl text-white w-screen font-semibold flex  absolute left-[100%]  top-0"
+					className="text-9xl w-full text-white  font-semibold flex  absolute left-[100%]  top-0"
 				>
 					{Array.from({ length: number }).map((_, i) => (
-						<h1 key={i} className={i === 2 ? "text-red-500" : ""}>
+						<h1 key={i} className={i === colorIndex ? "text-red-500" : ""}>
 							{text}
 						</h1>
 					))}

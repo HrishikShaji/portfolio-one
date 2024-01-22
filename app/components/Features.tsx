@@ -31,7 +31,6 @@ const Box: React.FC<BoxProps> = ({ item, index }) => {
 						start: "top center",
 						end: "center center",
 						scrub: .5,
-						markers: true,
 					},
 				},
 			);

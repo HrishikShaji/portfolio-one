@@ -24,8 +24,7 @@ const skills = [
 export const Skills = () => {
 	return (
 		<div>
-
-			<Marquee text="MY SKILLS" number={5} />
+			<Marquee text="MY SKILLS" number={3} colorIndex={2} />
 			<div className="p-5 relative w-full h-full text-white grid grid-cols-5 gap-5">
 				{skills.map((item) => (
 					<h1 key={item} className="text-2xl font-semibold">

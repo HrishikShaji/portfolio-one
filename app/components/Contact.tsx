@@ -3,7 +3,8 @@ import { Marquee } from "./Marquee";
 export const Contact = () => {
 	return (
 		<div className="w-full text-white h-screen gap-10 flex flex-col justify-center items-center">
-			<Marquee text="CONTACT ME" number={5} />
+			<Marquee text="CONTACT ME" number={2} colorIndex={1} />
+
 			<div className="flex flex-col gap-10">
 				<h1 className="text-3xl font-bold">{`Let's Discuss What You Want?`}</h1>
 				<form className="flex flex-col gap-3 items-center ">
