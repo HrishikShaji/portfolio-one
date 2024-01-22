@@ -59,7 +59,7 @@ export const Skills = () => {
 	}, [isMounted]);
 
 	return (
-		<div className="pb-40 flex flex-col gap-10">
+		<div id="skills" className="pb-40 flex flex-col gap-10">
 			<Marquee text="MY SKILLS" number={3} colorIndex={2} />
 			<div className="px-10 relative w-full h-full text-white grid grid-cols-4 gap-10">
 				{skills.map((item) => (

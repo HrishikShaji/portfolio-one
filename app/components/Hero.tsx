@@ -29,7 +29,10 @@ export const Hero = () => {
 	}, [code]);
 
 	return (
-		<div className="h-screen w-full flex justify-center text-white flex-col gap-40 items-center">
+		<div
+			id="home"
+			className="h-screen w-full flex justify-center text-white flex-col gap-40 items-center"
+		>
 			<div className="flex flex-col gap-4 items-center">
 				{code ? (
 					<Code setCode={setCode} />
