@@ -1,59 +1,53 @@
 "use client";
 import gsap from "gsap";
-import { useEffect } from "react";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import { useMount } from "../hooks/useMount";
+import { useLayoutEffect, useRef } from "react";
 
-interface ProjectCardProps {
-	index: number;
-}
+export const ProjectCard = () => {
+	const cardRef = useRef<HTMLDivElement>(null);
+	const projectRef = useRef<HTMLDivElement>(null);
 
-export const ProjectCard: React.FC<ProjectCardProps> = ({ index }) => {
-	const { isMounted } = useMount();
-	useEffect(() => {
-		gsap.registerPlugin(ScrollTrigger);
-		if (isMounted) {
-			const nextCard = document.getElementById(`card-${index + 1}`);
-			const card = document.getElementById(`card-${index}`);
-			const project = document.getElementById(`project-${index}`);
-			const tl = gsap.timeline({
-				scrollTrigger: {
-					trigger: card,
-					start: "top bottom",
-					end: "top top",
-					scrub: 1,
-				},
-			});
+	useLayoutEffect(() => {
+		let ctx = gsap.context(() => {
+			const tl = gsap.timeline();
 
 			tl.fromTo(
-				project,
+				projectRef.current,
 				{
 					scale: 0,
-					transformOrigin: "right top",
 				},
 				{
 					scale: 1,
+
+					transformOrigin: "right top",
+					scrollTrigger: {
+						trigger: cardRef.current,
+						start: "top bottom",
+						end: "top top",
+						scrub: 1,
+					},
 				},
 			).fromTo(
-				project,
+				projectRef.current,
 				{ scaleX: 1 },
 				{
 					scaleX: 0,
 					transformOrigin: "left top",
 					backgroundColor: "red",
 					scrollTrigger: {
-						trigger: nextCard,
-						start: "top bottom",
-						end: "top top",
+						trigger: cardRef.current,
+						start: "bottom bottom",
+						end: "bottom top",
 						scrub: 1,
 					},
 				},
 			);
-		}
-	}, [index, isMounted]);
+		});
+
+		return () => ctx.revert();
+	}, []);
 	return (
 		<div
-			id={`card-${index}`}
+			ref={cardRef}
 			className="card  flex flex-col gap-10 px-10  h-[100vh] w-full top-0 "
 		>
 			<div className="flex border-y-2 text-white items-center  py-5 border-white justify-between ">
@@ -61,7 +55,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ index }) => {
 				<h1 className="text-3xl">DESCRIPTION</h1>
 			</div>
 			<div
-				id={`project-${index}`}
+				ref={projectRef}
 				className="h-[calc(100vh-100px)]  w-full bg-neutral-500 rounded-md"
 			/>
 		</div>
