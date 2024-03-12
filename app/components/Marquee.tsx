@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { ReactNode, useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
@@ -8,12 +8,14 @@ interface MarqueeProps {
 	text: string;
 	number: number;
 	colorIndex: number;
+	children: ReactNode;
 }
 
 export const Marquee: React.FC<MarqueeProps> = ({
 	text,
 	number,
 	colorIndex,
+	children,
 }) => {
 	const firstText = useRef(null);
 	const secondText = useRef(null);
@@ -52,28 +54,12 @@ export const Marquee: React.FC<MarqueeProps> = ({
 	}, []);
 
 	return (
-		<div className="">
-			<div ref={slider} className="relative overflow-hidden">
-				<div
-					ref={firstText}
-					className="text-9xl w-full overflow-hidden relative m-0 flex text-white font-semibold"
-				>
-					{Array.from({ length: number }).map((_, i) => (
-						<h1 key={i} className={i === colorIndex ? "text-red-500" : ""}>
-							{text}
-						</h1>
-					))}
-				</div>
-				<div
-					ref={secondText}
-					className="text-9xl w-full text-white  font-semibold flex  absolute left-[100%]  top-0"
-				>
-					{Array.from({ length: number }).map((_, i) => (
-						<h1 key={i} className={i === colorIndex ? "text-red-500" : ""}>
-							{text}
-						</h1>
-					))}
-				</div>
+		<div ref={slider} className="overflow-hidden flex">
+			<div ref={firstText} className="flex whitespace-pre w-fit  ">
+				{children}
+			</div>
+			<div ref={secondText} className="flex whitespace-pre w-fit  ">
+				{children}
 			</div>
 		</div>
 	);
