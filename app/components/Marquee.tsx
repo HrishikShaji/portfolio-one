@@ -36,7 +36,6 @@ export const Marquee: React.FC<MarqueeProps> = ({ children, speed }) => {
         start: 0,
         end: window.innerHeight,
         scrub: 1,
-        markers: true,
         onUpdate: (e) => {
           directionRef.current = e.direction * -1; // Update directionRef
         },

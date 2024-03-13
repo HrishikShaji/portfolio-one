@@ -15,7 +15,7 @@ export const Hero = () => {
       {Array.from({ length: 7 }).map((_, j) => (
         <Marquee key={j} speed={speed[j]}>
           {Array.from({ length: 5 }).map((_, i) => (
-            <h1 key={i} className="text-neutral-800  text-8xl ">
+            <h1 key={i} className="text-neutral-800 font-audiowide text-8xl ">
               ANAIKIN <span className="text-red-500">.</span>
             </h1>
           ))}
@@ -23,9 +23,9 @@ export const Hero = () => {
       ))}
       <div className="flex flex-col gap-4 items-center absolute top-40 left-10 text-white">
         <div className="flex flex-col gap-20">
-          <div className="flex flex-col gap-2 text-9xl">
-            <SplitText text={data.hero.headingOne} />
-            <SplitText text={data.hero.headingTwo} />
+          <div className="flex flex-col gap-2 text-8xl bg-red-500 text-black p-10 rounded-3xl">
+            <SplitText text={`ANAKIN SKYWALKER.`} />
+            <SplitText text="WEB DEVELOPER." />
           </div>
           <button className="text-6xl text-red-500">
             <SplitText text={`Let's Talk`} />
