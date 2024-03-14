@@ -23,7 +23,10 @@ export const SplitText: React.FC<SplitTextProps> = ({ text }) => {
 	}, []);
 
 	return (
-		<h1 className="custom-clip flex font-audiowide" style={{ whiteSpace: "pre" }}>
+		<h1
+			className="custom-clip flex font-audiowide"
+			style={{ whiteSpace: "pre" }}
+		>
 			{text.split("").map((letter, i) => (
 				<div
 					ref={(el) => (letterRefs.current[i] = el)}

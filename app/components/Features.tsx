@@ -2,47 +2,94 @@
 
 import gsap from "gsap";
 import { useLayoutEffect, useRef } from "react";
-import { Box } from "./Box";
 import { data } from "../lib/data";
 
 export const Features = () => {
-  const pinRef = useRef<HTMLDivElement>(null);
-  const targetRef = useRef<HTMLDivElement>(null);
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      gsap.to(pinRef.current, {
-        scrollTrigger: {
-          trigger: targetRef.current,
-          pin: pinRef.current,
-          start: "top top",
-          end: "bottom bottom",
-        },
-      });
-    });
+	const pinRef = useRef<HTMLDivElement>(null);
+	const textRef = useRef<HTMLHeadingElement>(null);
+	const targetRef = useRef<HTMLDivElement>(null);
+	const titleRef = useRef<HTMLDivElement>(null);
+	const featureRefs = useRef<(HTMLHeadingElement | null)[]>([]);
+	useLayoutEffect(() => {
+		let ctx = gsap.context(() => {
+			gsap.from(textRef.current, {
+				yPercent: 200,
+				scrollTrigger: {
+					trigger: pinRef.current,
+					start: "top top",
+					once: true,
+				},
+			});
 
-    return () => ctx.revert();
-  }, []);
+			gsap.to(pinRef.current, {
+				scrollTrigger: {
+					trigger: targetRef.current,
+					pin: pinRef.current,
+					start: "top top",
+					end: "bottom bottom",
+				},
+			});
+			featureRefs.current.forEach((el) => {
+				const timeline = gsap.timeline();
+				const rect = titleRef.current?.getBoundingClientRect();
+				const textRect = textRef.current?.getBoundingClientRect();
 
-  return (
-    <div className="h-full w-full flex text-white ">
-      <div
-        ref={pinRef}
-        className=" h-screen w-[50%]  flex justify-center items-center"
-      >
-        <div className="flex flex-col gap-0 leading-none text-9xl items-start">
-          <h1 className="text-[250px]">{`I'm`}</h1>
-          <h1>Best</h1>
-          <h1>At</h1>
-        </div>
-      </div>
-      <div
-        ref={targetRef}
-        className=" flex flex-col gap-4  w-[50%] h-[300vh] items-center justify-around"
-      >
-        {data.features.data.map((item, i) => (
-          <Box item={item} key={i} />
-        ))}
-      </div>
-    </div>
-  );
+				if (rect && textRect) {
+					timeline.fromTo(
+						el,
+						{ scale: 1 },
+						{
+							scale: 2,
+							transformOrigin: "top left",
+							color: "white",
+							scrollTrigger: {
+								trigger: el,
+								start: `top 500px`,
+								end: `top ${textRef.current?.offsetTop}px`,
+								scrub: true,
+							},
+						},
+					);
+				}
+			});
+		});
+
+		return () => ctx.revert();
+	}, []);
+
+	return (
+		<div className="h-full w-full flex text-white ">
+			<div
+				ref={pinRef}
+				className=" h-screen w-[50%]  flex justify-center items-center"
+			>
+				<div
+					ref={titleRef}
+					className="flex font-audiowide flex-col gap-0 leading-none text-9xl items-start"
+				>
+					<h1 className=" text-red-500 font-audiowide">{`I'M`}</h1>
+					<div className="overflow-hidden">
+						<h1 ref={textRef} className="font-audiowide ">
+							BEST
+						</h1>
+					</div>
+					<h1 className="font-audiowide text-red-500">AT</h1>
+				</div>
+			</div>
+			<div
+				ref={targetRef}
+				className=" flex flex-col   w-[50%] gap-[50vh] pt-[100vh] pb-[50vh]  justify-around"
+			>
+				{data.features.data.map((item, i) => (
+					<h1
+						ref={(el) => (featureRefs.current[i] = el)}
+						key={i}
+						className="text-4xl smooth font-audiowide text-red-500 w-[200px] flex-wrap mix-blend-difference z-10"
+					>
+						{item}
+					</h1>
+				))}
+			</div>
+		</div>
+	);
 };

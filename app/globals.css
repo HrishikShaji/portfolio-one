@@ -22,3 +22,11 @@ h1 {
     -webkit-text-stroke: 4px white;
   }
 }
+
+.smooth {
+  font-smooth: always !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  transform: perspective(1px) translateZ(0);
+  backface-visibility: hidden;
+}

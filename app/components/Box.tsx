@@ -6,38 +6,53 @@ interface BoxProps {
 	item: string;
 }
 export const Box: React.FC<BoxProps> = ({ item }) => {
-	const boxRef = useRef<HTMLDivElement>(null);
-	const overlayRef = useRef<HTMLDivElement>(null);
+	const textRef = useRef<HTMLHeadingElement>(null);
 
 	useLayoutEffect(() => {
 		let ctx = gsap.context(() => {
-			gsap.fromTo(
-				overlayRef.current,
-				{ scaleY: 0 },
+			const timeline = gsap.timeline();
+			timeline.fromTo(
+				textRef.current,
+				{ scale: 1 },
 				{
-					scaleY: 1,
-					transformOrigin: "top",
+					scale: 2,
+					transformOrigin: "left",
+					color: "white",
 					scrollTrigger: {
-						trigger: boxRef.current,
-						start: "top center",
-						end: "center center",
-						scrub: 0.5,
+						trigger: textRef.current,
+						start: "top 80%",
+						end: "top 40%",
+						scrub: true,
+						markers: true,
+					},
+				},
+			);
+
+			gsap.fromTo(
+				textRef.current,
+				{ scale: 2 },
+				{
+					scale: 1,
+					transformOrigin: "left",
+					color: "#ef4444",
+					scrollTrigger: {
+						trigger: textRef.current,
+						start: "top 40%",
+						end: "top 20%",
+						scrub: true,
+						markers: true,
 					},
 				},
 			);
 		});
-		return () => ctx.revert();
+		return () => ctx.clear();
 	}, []);
 	return (
-		<div
-			ref={boxRef}
-			className="box h-[300px] w-[300px] relative rounded-md  flex justify-center text-center items-center"
+		<h1
+			ref={textRef}
+			className="text-4xl smooth font-audiowide text-red-500 w-[200px] flex-wrap mix-blend-difference z-10"
 		>
-			<h1 className="text-4xl font-bold mix-blend-difference z-10">{item}</h1>
-			<div
-				ref={overlayRef}
-				className="overlay absolute top-0 h-full w-full bg-white"
-			/>
-		</div>
+			{item}
+		</h1>
 	);
 };
