@@ -48,7 +48,6 @@ h1 {
   width: 50px;
   height: 30px;
   background-color: #f0f0f0;
-  border: 2px solid #333;
   text-align: center;
 }
 
@@ -83,10 +82,10 @@ h1 {
   position: absolute;
   content: "";
   left: 85px;
-  top: 0;
-  background-color: green;
+  top: 12px;
+  background: linear-gradient(to bottom right, #0000 45%, #000 0 55%, #0000 0);
   color: black;
   width: 30px;
-  height: 70px;
+  height: 40px;
   font-weight: bold;
 }
