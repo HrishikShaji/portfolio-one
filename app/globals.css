@@ -45,23 +45,23 @@ h1 {
 
 .box {
   position: relative;
-  width: 150px;
-  height: 100px;
+  width: 50px;
+  height: 30px;
   background-color: #f0f0f0;
   border: 2px solid #333;
   text-align: center;
-  line-height: 100px;
 }
 
 .box::after {
   position: absolute;
+  z-index: 10;
   content: "";
   transform: translateY(-50%);
   right: 100%;
   top: 50%;
   background-color: red;
   color: black;
-  width: 80px;
+  width: 35px;
   height: 5px;
   font-weight: bold;
 }
@@ -72,9 +72,21 @@ h1 {
   transform: translateY(-50%);
   left: 100%;
   top: 50%;
-  background-color: red;
+  background-color: blue;
   color: black;
-  width: 80px;
+  width: 35px;
   height: 5px;
+  font-weight: bold;
+}
+
+.main-box::after {
+  position: absolute;
+  content: "";
+  left: 85px;
+  top: 0;
+  background-color: green;
+  color: black;
+  width: 30px;
+  height: 70px;
   font-weight: bold;
 }
