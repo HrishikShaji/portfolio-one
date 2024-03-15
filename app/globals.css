@@ -44,23 +44,37 @@ h1 {
 }
 
 .box {
+  position: relative;
   width: 150px;
   height: 100px;
   background-color: #f0f0f0;
   border: 2px solid #333;
   text-align: center;
   line-height: 100px;
-  position: relative;
 }
 
-.arrow-right {
+.box::after {
   position: absolute;
-  top: 50%;
-  right: -20px;
+  content: "";
   transform: translateY(-50%);
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 10px solid #333;
+  right: 100%;
+  top: 50%;
+  background-color: red;
+  color: black;
+  width: 80px;
+  height: 5px;
+  font-weight: bold;
+}
+
+.box::before {
+  position: absolute;
+  content: "";
+  transform: translateY(-50%);
+  left: 100%;
+  top: 50%;
+  background-color: red;
+  color: black;
+  width: 80px;
+  height: 5px;
+  font-weight: bold;
 }

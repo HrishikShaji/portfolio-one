@@ -1,13 +1,10 @@
 export const FlowChart = () => {
 	return (
-		<div class="container">
-			<div class="box">Start</div>
-			<div class="arrow-right"></div>
-			<div class="box">Step 1</div>
-			<div class="arrow-right"></div>
-			<div class="box">Step 2</div>
-			<div class="arrow-right"></div>
-			<div class="box">End</div>
+		<div className="container grid grid-cols-4 gap-40 ">
+			<div className="box  ">1</div>
+			<div className="box">2</div>
+			<div className="box">3</div>
+			<div className="box">4</div>
 		</div>
-	)
-}
+	);
+};
