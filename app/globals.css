@@ -22,11 +22,45 @@ h1 {
     -webkit-text-stroke: 4px white;
   }
 }
-
+.split-parent {
+  overflow: hidden;
+}
+.split-child {
+  display: inline-block;
+}
 .smooth {
   font-smooth: always !important;
   -webkit-font-smoothing: antialiased !important;
   -moz-osx-font-smoothing: grayscale !important;
   transform: perspective(1px) translateZ(0);
   backface-visibility: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.box {
+  width: 150px;
+  height: 100px;
+  background-color: #f0f0f0;
+  border: 2px solid #333;
+  text-align: center;
+  line-height: 100px;
+  position: relative;
+}
+
+.arrow-right {
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #333;
 }
