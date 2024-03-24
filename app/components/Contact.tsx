@@ -3,6 +3,7 @@ import { useLayoutEffect, useRef } from "react";
 import { Marquee } from "./Marquee";
 import gsap from "gsap";
 import { data } from "../lib/data";
+import { Headings } from "./Headings";
 
 export const Contact = () => {
   const contactRefs = useRef<
@@ -37,13 +38,7 @@ export const Contact = () => {
   }, []);
   return (
     <div className=" h-screen flex flex-col justify-center gap-10">
-      <Marquee text={data.contact.title} number={2} colorIndex={1}>
-        {Array.from({ length: 5 }).map((_, i) => (
-          <h1 key={i} className="text-red-500 text-6xl ">
-            CONTACT ME
-          </h1>
-        ))}
-      </Marquee>
+      <Headings text="CONTACT" />
       <div className="flex w-[50%] flex-col gap-10">
         <h1 className="input text-3xl font-bold">{data.contact.description}</h1>
         <form className="flex flex-col gap-3 items-center ">

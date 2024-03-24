@@ -4,6 +4,7 @@ import { Marquee } from "./Marquee";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { data } from "../lib/data";
+import { Headings } from "./Headings";
 
 export const Skills = () => {
   const skillRefs = useRef<(HTMLHeadingElement | null)[]>([]);
@@ -37,13 +38,7 @@ export const Skills = () => {
 
   return (
     <div className="pb-40 flex flex-col gap-10">
-      <Marquee text={data.skills.title} number={3} colorIndex={2}>
-        {Array.from({ length: 5 }).map((_, i) => (
-          <h1 key={i} className="text-red-500 text-6xl ">
-            MY SKILLS{" "}
-          </h1>
-        ))}
-      </Marquee>
+      <Headings text="SKILLS" />
       <div className="px-10 relative w-full h-full text-white grid grid-cols-4 gap-10">
         {data.skills.data.map((item, i) => (
           <h1
