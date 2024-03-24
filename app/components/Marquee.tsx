@@ -15,6 +15,7 @@ export const Marquee: React.FC<MarqueeProps> = ({ children, speed }) => {
   const directionRef = useRef(-1); // Use useRef to store direction value
   useEffect(() => {
     let xPercent = 0;
+    let animationId: number;
 
     const animation = () => {
       if (xPercent <= -100) {
@@ -26,21 +27,28 @@ export const Marquee: React.FC<MarqueeProps> = ({ children, speed }) => {
       gsap.set(firstText.current, { xPercent: xPercent });
       gsap.set(secondText.current, { xPercent: xPercent });
       xPercent += speed * directionRef.current; // Use directionRef
-      requestAnimationFrame(animation);
+      animationId = requestAnimationFrame(animation);
     };
-    requestAnimationFrame(animation);
+    animationId = requestAnimationFrame(animation);
 
-    gsap.to(slider.current, {
-      scrollTrigger: {
-        trigger: document.documentElement,
-        start: 0,
-        end: window.innerHeight,
-        scrub: 1,
-        onUpdate: (e) => {
-          directionRef.current = e.direction * -1; // Update directionRef
+    let ctx = gsap.context(() => {
+      gsap.to(slider.current, {
+        scrollTrigger: {
+          trigger: document.documentElement,
+          start: 0,
+          end: window.innerHeight,
+          scrub: 1,
+          onUpdate: (e) => {
+            directionRef.current = e.direction * -1; // Update directionRef
+          },
         },
-      },
+      });
     });
+
+    return () => {
+      ctx.kill();
+      cancelAnimationFrame(animationId);
+    };
   }, []);
 
   return (
