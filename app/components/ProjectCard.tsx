@@ -1,8 +1,14 @@
 "use client";
 import gsap from "gsap";
+import Image from "next/image";
 import { useLayoutEffect, useRef } from "react";
 
-export const ProjectCard = () => {
+interface ProjectCardProps {
+	title: string;
+	img: string;
+}
+
+export const ProjectCard: React.FC<ProjectCardProps> = ({ title, img }) => {
 	const cardRef = useRef<HTMLDivElement>(null);
 	const projectRef = useRef<HTMLDivElement>(null);
 
@@ -13,10 +19,10 @@ export const ProjectCard = () => {
 			tl.fromTo(
 				projectRef.current,
 				{
-					scale: 0,
+					xPercent: 100,
 				},
 				{
-					scale: 1,
+					xPercent: 0,
 
 					transformOrigin: "right top",
 					scrollTrigger: {
@@ -28,9 +34,9 @@ export const ProjectCard = () => {
 				},
 			).fromTo(
 				projectRef.current,
-				{ scaleX: 1 },
+				{ xPercent: 0 },
 				{
-					scaleX: 0,
+					xPercent: -100,
 					transformOrigin: "left top",
 					backgroundColor: "red",
 					scrollTrigger: {
@@ -51,13 +57,14 @@ export const ProjectCard = () => {
 			className="card  flex flex-col gap-10 px-10  h-[100vh] w-full top-0 "
 		>
 			<div className="flex border-y-2 text-white items-center  py-5 border-white justify-between ">
-				<h1 className="text-3xl">TITLE</h1>
-				<h1 className="text-3xl">DESCRIPTION</h1>
+				<h1 className="text-3xl">{title}</h1>
 			</div>
 			<div
 				ref={projectRef}
 				className="h-[calc(100vh-100px)]  w-full bg-neutral-500 rounded-md"
-			/>
+			>
+				<Image className="h-full w-full object-cover" fill alt="" src={img} />
+			</div>
 		</div>
 	);
 };
