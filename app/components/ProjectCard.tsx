@@ -10,7 +10,7 @@ interface ProjectCardProps {
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ title, img }) => {
   const cardRef = useRef<HTMLDivElement>(null);
-  const projectRef = useRef<HTMLDivElement>(null);
+  const projectRef = useRef<HTMLImageElement>(null);
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -26,7 +26,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ title, img }) => {
 
           transformOrigin: "right top",
           scrollTrigger: {
-            trigger: cardRef.current,
+            trigger: projectRef.current,
             start: "top bottom",
             end: "top top",
             scrub: 1,
@@ -37,10 +37,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ title, img }) => {
         { scale: 1 },
         {
           scale: 0,
-          transformOrigin: "left top",
+          transformOrigin: "left bottom",
           backgroundColor: "red",
           scrollTrigger: {
-            trigger: cardRef.current,
+            trigger: projectRef.current,
             start: "bottom bottom",
             end: "bottom top",
             scrub: 1,
@@ -59,12 +59,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ title, img }) => {
       <div className="flex border-y-2 text-white items-center  py-5 border-white justify-between ">
         <h1 className="text-3xl">{title}</h1>
       </div>
-      <div
+      <Image
         ref={projectRef}
-        className="h-[calc(100vh-100px)]  w-full bg-neutral-500 rounded-md"
-      >
-        <Image className="h-full w-full object-cover" fill alt="" src={img} />
-      </div>
+        className="h-[calc(100vh-100px)] w-full object-cover"
+        height={1000}
+        width={1000}
+        alt=""
+        src={img}
+      />
     </div>
   );
 };
