@@ -43,6 +43,10 @@ h1 {
   height: 100vh;
 }
 
+.split-child {
+	overflow:hidden;
+}
+
 .box {
   position: relative;
   width: 50px;

@@ -1,30 +1,30 @@
 import { useEffect, useRef } from "react";
 import { data } from "../lib/data";
-import { Marquee } from "./Marquee";
 import SplitType from "split-type";
 import gsap from "gsap";
 import { Headings } from "./Headings";
 
-const speed = [0.1, 0.2, 0.1, 0.2, 0.1, 0.2, 0.1, 0.2];
 export const About = () => {
   const paraRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
     if (paraRef.current) {
-      const text = new SplitType(paraRef.current, {
-        types: "lines,words,chars",
-      });
       const childSplit = new SplitType(paraRef.current, {
         types: "lines",
         lineClass: "split-child",
       });
-      const parentSplit = new SplitType(paraRef.current, {
-        types: "lines",
-        lineClass: "split-parent",
+
+      const lines = document.querySelectorAll(".split-child");
+      lines.forEach((line) => {
+        const div = document.createElement("div");
+        div.classList.add("inner-div");
+        div.textContent = line.textContent;
+        line.textContent = "";
+        line.appendChild(div);
       });
 
       let ctx = gsap.context(() => {
-        gsap.from(childSplit.lines, {
+        gsap.from(".inner-div", {
           duration: 1.5,
           yPercent: 100,
           ease: "power4",
