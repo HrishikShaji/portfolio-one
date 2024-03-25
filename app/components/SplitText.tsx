@@ -7,6 +7,7 @@ interface SplitTextProps {
 
 export const SplitText: React.FC<SplitTextProps> = ({ text }) => {
 	const letterRefs = useRef<(HTMLDivElement | null)[]>([]);
+	const containerRef = useRef<HTMLHeadingElement>(null);
 	useLayoutEffect(() => {
 		let ctx = gsap.context(() => {
 			gsap.set(letterRefs.current, { y: 500 });
@@ -17,13 +18,14 @@ export const SplitText: React.FC<SplitTextProps> = ({ text }) => {
 				duration: 0.05,
 				ease: "bounce",
 			});
-		});
+		}, containerRef);
 
 		return () => ctx.revert();
 	}, []);
 
 	return (
 		<h1
+			ref={containerRef}
 			className="custom-clip flex font-audiowide"
 			style={{ whiteSpace: "pre" }}
 		>

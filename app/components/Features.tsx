@@ -10,6 +10,8 @@ export const Features = () => {
 	const targetRef = useRef<HTMLDivElement>(null);
 	const titleRef = useRef<HTMLDivElement>(null);
 	const featureRefs = useRef<(HTMLHeadingElement | null)[]>([]);
+	const containerRef = useRef<HTMLDivElement>(null);
+
 	useLayoutEffect(() => {
 		let ctx = gsap.context(() => {
 			gsap.from(textRef.current, {
@@ -52,13 +54,13 @@ export const Features = () => {
 					);
 				}
 			});
-		});
+		}, containerRef);
 
 		return () => ctx.revert();
 	}, []);
 
 	return (
-		<div className="h-full w-full flex text-white ">
+		<div ref={containerRef} className="h-full w-full flex text-white ">
 			<div
 				ref={pinRef}
 				className=" h-screen w-[50%]  flex justify-center items-center"
