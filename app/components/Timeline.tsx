@@ -6,14 +6,19 @@ export const Timeline = () => {
 			<h1 className="text-4xl text-red-500">MY JOURNEY</h1>
 			<div className="flex flex-col">
 				{data.education.data.map((item, i) => (
-					<div key={i} className="flex h-[300px] w-full">
-						<div
-							className={`${i % 2 === 0 ? "bg-red-500" : "bg-black"} w-full flex justify-center items-center h-full`}
-						>
+					<div key={i} className="flex bg-black  h-[300px] w-full">
+						<div className={` w-full flex  justify-center items-center h-full`}>
 							{i % 2 === 0 ? (
-								<h1 className="text-black text-6xl">{item.endYear}</h1>
+								<div
+									className={`flex  justify-center items-center relative h-full  w-full`}
+								>
+									<div
+										className={`bg-red-500 absolute h-full w-full mix-blend-difference left-40`}
+									></div>
+									<h1 className="text-red-500 text-6xl">{item.endYear}</h1>
+								</div>
 							) : (
-								<div className="flex text-red-500 flex-col  items-end justify-center gap-5">
+								<div className="flex text-red-500   flex-col  items-end justify-center gap-5">
 									<h1 className=" text-3xl">{item.major}</h1>
 									<div className="flex flex-col gap-1 items-end">
 										<h1 className="text-xl">{item.degreeType}</h1>
@@ -23,9 +28,7 @@ export const Timeline = () => {
 								</div>
 							)}
 						</div>
-						<div
-							className={`${i % 2 === 0 ? "bg-black" : "bg-red-500"} w-full h-full flex justify-center items-center`}
-						>
+						<div className={` w-full  h-full flex justify-center items-center`}>
 							{i % 2 === 0 ? (
 								<div className="flex text-red-500 flex-col  items-start justify-center gap-5">
 									<h1 className=" text-3xl">{item.major}</h1>
@@ -36,7 +39,14 @@ export const Timeline = () => {
 									</div>
 								</div>
 							) : (
-								<h1 className="text-black text-6xl">{item.endYear}</h1>
+								<div
+									className={`flex justify-center items-center relative h-full  w-full`}
+								>
+									<div
+										className={`bg-red-500 -left-40 absolute h-full w-full mix-blend-difference `}
+									></div>
+									<h1 className="text-red-500 text-6xl">{item.endYear}</h1>
+								</div>
 							)}
 						</div>
 					</div>
