@@ -10,6 +10,7 @@ import { Projects } from "./components/Projects";
 import { Skills } from "./components/Skills";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
+import { Timeline } from "./components/Timeline";
 
 export default function Home() {
 	useEffect(() => {
@@ -22,6 +23,7 @@ export default function Home() {
 			<Intro />
 			<Features />
 			<About />
+			<Timeline />
 			<Projects />
 			<Skills />
 			<Contact />
