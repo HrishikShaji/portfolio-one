@@ -8,13 +8,15 @@ export const Timeline = () => {
 	useLayoutEffect(() => {
 		let ctx = gsap.context(() => {
 			overlayRefs.current.forEach((el, i) => {
+				const elHeight = el?.getBoundingClientRect().height;
 				gsap.to(el, {
-					xPercent: i % 2 === 0 ? 100 : -100,
+					xPercent: i % 2 === 0 ? -100 : 100,
 					scrollTrigger: {
 						trigger: el,
-						start: "top center",
-						end: "top 30%",
+						start: "top bottom",
+						end: `+=${elHeight}`,
 						scrub: true,
+						markers: true,
 					},
 				});
 			});
@@ -66,7 +68,13 @@ export const Timeline = () => {
 					</div>
 				))}
 				{data.experience.data.map((item, i) => (
-					<div key={i} className="flex h-[300px] w-full">
+					<div key={i} className="flex relative h-[300px] w-full">
+						<div
+							ref={(el) =>
+								(overlayRefs.current[i + data.education.data.length] = el)
+							}
+							className="absolute h-full w-full bg-red-500 mix-blend-difference "
+						></div>
 						<div
 							className={`${(i + 1) % 2 === 0 ? "bg-red-500" : "bg-black"} w-full flex justify-center items-center h-full`}
 						>
