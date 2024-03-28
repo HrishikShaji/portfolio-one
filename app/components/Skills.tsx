@@ -19,7 +19,6 @@ export const Skills = () => {
 					start: "top top",
 					end: "+=3000",
 					scrub: true,
-					once: true,
 				},
 			});
 
@@ -29,30 +28,50 @@ export const Skills = () => {
 				});
 			}
 
-			tl.fromTo(
-				overlayRefs.current[0],
-				{ xPercent: -100 },
-				{ xPercent: 0, onComplete: () => disappear(0) },
-			)
-				.fromTo(
-					overlayRefs.current[1],
-					{ xPercent: -100 },
-					{ xPercent: 0, onComplete: () => disappear(1) },
-				)
-				.fromTo(overlayRefs.current[2], { xPercent: -100 }, { xPercent: 0 })
-				.fromTo(overlayRefs.current[3], { xPercent: -100 }, { xPercent: 0 })
-				.fromTo(overlayRefs.current[7], { yPercent: -100 }, { yPercent: 0 })
-				.fromTo(overlayRefs.current[6], { xPercent: 100 }, { xPercent: 0 })
-				.fromTo(overlayRefs.current[5], { xPercent: 100 }, { xPercent: 0 })
-				.fromTo(overlayRefs.current[4], { xPercent: 100 }, { xPercent: 0 })
-				.fromTo(overlayRefs.current[8], { yPercent: -100 }, { yPercent: 0 })
-				.fromTo(overlayRefs.current[9], { xPercent: -100 }, { xPercent: 0 })
-				.fromTo(overlayRefs.current[10], { xPercent: -100 }, { xPercent: 0 })
-				.fromTo(overlayRefs.current[11], { xPercent: -100 }, { xPercent: 0 })
-				.fromTo(overlayRefs.current[15], { yPercent: -100 }, { yPercent: 0 })
-				.fromTo(overlayRefs.current[14], { xPercent: 100 }, { xPercent: 0 })
-				.fromTo(overlayRefs.current[13], { xPercent: 100 }, { xPercent: 0 })
-				.fromTo(overlayRefs.current[12], { xPercent: 100 }, { xPercent: 0 });
+			const directions = [
+				"right",
+				"right",
+				"right",
+				"right",
+				"left",
+				"left",
+				"left",
+				"down",
+				"down",
+				"right",
+				"right",
+				"right",
+				"left",
+				"left",
+				"left",
+				"down",
+			];
+			const indexes = [0, 1, 2, 3, 7, 6, 5, 4, 8, 9, 10, 11, 15, 14, 13, 12];
+
+			function getValue(index: number) {
+				if (directions[index] === "right") {
+					return { x: -100, y: 0 };
+				} else if (directions[index] === "left") {
+					return { x: 100, y: 0 };
+				} else {
+					return { x: 0, y: -100 };
+				}
+			}
+
+			indexes.forEach((index) => {
+				tl.fromTo(
+					overlayRefs.current[index],
+					{
+						xPercent: getValue(index).x,
+						yPercent: getValue(index).y,
+					},
+					{
+						xPercent: 0,
+						yPercent: 0,
+					},
+				);
+			});
+
 			skillRefs.current.forEach((skill) => {
 				gsap.fromTo(
 					skill,
