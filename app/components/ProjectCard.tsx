@@ -39,9 +39,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ title, img }) => {
           scrub: true,
         },
       });
-    });
+    }, cardRef);
 
-    return () => ctx.revert();
+    return () => ctx.kill();
   }, []);
   return (
     <div

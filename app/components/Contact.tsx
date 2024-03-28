@@ -1,6 +1,5 @@
 "use client";
 import { useLayoutEffect, useRef } from "react";
-import { Marquee } from "./Marquee";
 import gsap from "gsap";
 import { data } from "../lib/data";
 import { Headings } from "./Headings";
@@ -9,6 +8,8 @@ export const Contact = () => {
   const contactRefs = useRef<
     (HTMLInputElement | HTMLTextAreaElement | HTMLButtonElement | null)[]
   >([]);
+
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -32,12 +33,15 @@ export const Contact = () => {
           },
         );
       });
-    });
+    }, containerRef);
 
-    return () => ctx.revert();
+    return () => ctx.kill();
   }, []);
   return (
-    <div className=" h-screen flex flex-col justify-center gap-10">
+    <div
+      ref={containerRef}
+      className=" h-screen flex flex-col justify-center gap-10"
+    >
       <Headings text="CONTACT" />
       <div className="flex w-[50%] flex-col gap-10">
         <h1 className="input text-3xl font-bold">{data.contact.description}</h1>

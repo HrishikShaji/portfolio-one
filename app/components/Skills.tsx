@@ -1,13 +1,12 @@
 "use client";
 import { useEffect, useLayoutEffect, useRef } from "react";
-import { Marquee } from "./Marquee";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { data } from "../lib/data";
 import { Headings } from "./Headings";
 
 export const Skills = () => {
   const skillRefs = useRef<(HTMLHeadingElement | null)[]>([]);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
@@ -31,13 +30,13 @@ export const Skills = () => {
           },
         );
       });
-    });
+    }, containerRef);
 
-    return () => ctx.revert();
+    return () => ctx.kill();
   }, []);
 
   return (
-    <div className="pb-40 flex flex-col gap-10">
+    <div ref={containerRef} className="pb-40 flex flex-col gap-10">
       <Headings text="SKILLS" />
       <div className="px-10 relative w-full h-full text-white grid grid-cols-4 gap-10">
         {data.skills.data.map((item, i) => (
