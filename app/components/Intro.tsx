@@ -9,8 +9,11 @@ export const Intro = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      gsap.from(textRefs.current, {
+      gsap.set(textRefs.current, {
         xPercent: (i) => (i + 1) * 1000,
+      });
+      gsap.to(textRefs.current, {
+        xPercent: 0,
         stagger: {
           from: "start",
           each: 0.05,

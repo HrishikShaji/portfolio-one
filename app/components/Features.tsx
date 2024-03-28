@@ -14,8 +14,9 @@ export const Features = () => {
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      gsap.from(textRef.current, {
-        yPercent: 200,
+      gsap.set(textRef.current, { yPercent: 200 });
+      gsap.to(textRef.current, {
+        yPercent: 0,
         scrollTrigger: {
           trigger: pinRef.current,
           start: "top top",
