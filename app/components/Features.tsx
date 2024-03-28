@@ -1,8 +1,8 @@
 "use client";
 
+import { data } from "@/lib/data";
 import gsap from "gsap";
 import { useLayoutEffect, useRef } from "react";
-import { data } from "../lib/data";
 
 export const Features = () => {
 	const pinRef = useRef<HTMLDivElement>(null);
@@ -88,7 +88,7 @@ export const Features = () => {
 						key={i}
 						className="text-4xl smooth font-audiowide text-red-500 w-[200px] flex-wrap mix-blend-difference z-10"
 					>
-						{item}
+						{item.title}
 					</h1>
 				))}
 			</div>

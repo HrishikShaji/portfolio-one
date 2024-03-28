@@ -1,34 +1,35 @@
 import { data } from "@/lib/data";
 import gsap from "gsap";
 import { useLayoutEffect, useRef } from "react";
+import { Headings } from "./Headings";
 
 export const Timeline = () => {
 	const overlayRefs = useRef<(HTMLDivElement | null)[]>([]);
+	const containerRef = useRef<HTMLDivElement>(null);
 
 	useLayoutEffect(() => {
 		let ctx = gsap.context(() => {
 			overlayRefs.current.forEach((el, i) => {
 				const elHeight = el?.getBoundingClientRect().height;
 				gsap.to(el, {
-					xPercent: i % 2 === 0 ? -100 : 100,
+					xPercent: i % 2 === 0 ? -50 : 50,
 					scrollTrigger: {
 						trigger: el,
 						start: "top bottom",
 						end: `+=${elHeight}`,
 						scrub: true,
-						markers: true,
 					},
 				});
 			});
-		});
+		}, containerRef);
 
 		return () => ctx.revert();
 	}, []);
 
 	return (
-		<div className="flex flex-col gap-2">
-			<h1 className="text-4xl text-red-500">MY JOURNEY</h1>
-			<div className="flex flex-col">
+		<div ref={containerRef} className="flex flex-col gap-2">
+			<Headings text="JOURNEY"></Headings>
+			<div className="flex flex-col overflow-hidden">
 				{data.education.data.map((item, i) => (
 					<div key={i} className="flex h-[300px] relative w-full">
 						<div
@@ -36,10 +37,10 @@ export const Timeline = () => {
 							className="absolute h-full w-full bg-red-500 mix-blend-difference "
 						></div>
 						<div
-							className={`${i % 2 === 0 ? "bg-red-500" : "bg-black"} w-full flex justify-center items-center h-full`}
+							className={`bg-black w-full flex justify-center items-center h-full`}
 						>
 							{i % 2 === 0 ? (
-								<h1 className="text-black text-6xl">{item.endYear}</h1>
+								<h1 className="text-red-500 text-6xl">{item.endYear}</h1>
 							) : (
 								<div className="flex text-red-500 flex-col  items-end justify-center gap-5">
 									<h1 className=" text-3xl">{item.major}</h1>
@@ -51,7 +52,7 @@ export const Timeline = () => {
 							)}
 						</div>
 						<div
-							className={`${i % 2 === 0 ? "bg-black" : "bg-red-500"} w-full h-full flex justify-center items-center`}
+							className={`bg-black w-full h-full flex justify-center items-center`}
 						>
 							{i % 2 === 0 ? (
 								<div className="flex text-red-500 flex-col  items-start justify-center gap-5">
@@ -62,7 +63,7 @@ export const Timeline = () => {
 									</div>
 								</div>
 							) : (
-								<h1 className="text-black text-6xl">{item.endYear}</h1>
+								<h1 className="text-red-500 text-6xl">{item.endYear}</h1>
 							)}
 						</div>
 					</div>
@@ -76,10 +77,10 @@ export const Timeline = () => {
 							className="absolute h-full w-full bg-red-500 mix-blend-difference "
 						></div>
 						<div
-							className={`${(i + 1) % 2 === 0 ? "bg-red-500" : "bg-black"} w-full flex justify-center items-center h-full`}
+							className={`bg-black w-full flex justify-center items-center h-full`}
 						>
 							{(i + 1) % 2 === 0 ? (
-								<h1 className="text-black text-6xl">{item.endYear}</h1>
+								<h1 className="text-red-500 text-6xl">{item.endYear}</h1>
 							) : (
 								<div className="flex text-red-500 flex-col  items-end justify-center gap-5">
 									<h1 className=" text-3xl">{item.position}</h1>
@@ -91,7 +92,7 @@ export const Timeline = () => {
 							)}
 						</div>
 						<div
-							className={`${(i + 1) % 2 === 0 ? "bg-black" : "bg-red-500"} w-full h-full flex justify-center items-center`}
+							className={`bg-black w-full h-full flex justify-center items-center`}
 						>
 							{(i + 1) % 2 === 0 ? (
 								<div className="flex text-red-500 flex-col  items-start justify-center gap-5">
@@ -102,7 +103,7 @@ export const Timeline = () => {
 									</div>
 								</div>
 							) : (
-								<h1 className="text-black text-6xl">{item.endYear}</h1>
+								<h1 className="text-red-500 text-6xl">{item.endYear}</h1>
 							)}
 						</div>
 					</div>
