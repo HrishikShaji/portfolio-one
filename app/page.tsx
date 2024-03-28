@@ -13,20 +13,20 @@ import gsap from "gsap";
 import { Timeline } from "./components/Timeline";
 
 export default function Home() {
-	useEffect(() => {
-		gsap.registerPlugin(ScrollTrigger);
-	}, []);
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+  }, []);
 
-	return (
-		<main className="    bg-neutral-900">
-			<Hero />
-			<Intro />
-			<Features />
-			<About />
-			<Timeline />
-			<Projects />
-			<Skills />
-			<Contact />
-		</main>
-	);
+  return (
+    <main className="    bg-neutral-900">
+      <Hero />
+      <Intro />
+      <Features />
+      <About />
+      <Timeline />
+      <Skills />
+      <Projects />
+      <Contact />
+    </main>
+  );
 }
