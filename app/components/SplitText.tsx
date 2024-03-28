@@ -10,14 +10,17 @@ export const SplitText: React.FC<SplitTextProps> = ({ text }) => {
   const containerRef = useRef<HTMLHeadingElement>(null);
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      gsap.set(letterRefs.current, { y: 500 });
-      gsap.to(letterRefs.current, {
-        delay: 1,
-        y: 0,
-        stagger: 0.05,
-        duration: 0.05,
-        ease: "bounce",
-      });
+      gsap.fromTo(
+        letterRefs.current,
+        { y: 500 },
+        {
+          delay: 1,
+          y: 0,
+          stagger: 0.05,
+          duration: 0.05,
+          ease: "bounce",
+        },
+      );
     }, containerRef);
 
     return () => ctx.kill();
