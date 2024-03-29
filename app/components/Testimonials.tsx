@@ -13,16 +13,16 @@ export const Testimonials = () => {
 
   useLayoutEffect(() => {
     let ctx = gsap.context(() => {
-      const tl = gsap.timeline().fromTo(
-        testimonialRefs.current,
-        {
-          xPercent: (i) => (i + 1) * 100,
-        },
-        {
-          stagger: 0.05,
-          xPercent: (i) => i * 25,
-        },
-      );
+      if (!containerRef.current) return;
+      const width = window.innerWidth - 40;
+
+      const gap = width / 6;
+      console.log(width);
+      const tl = gsap.timeline();
+
+      testimonialRefs.current.forEach((el, i) => {
+        tl.fromTo(el, { xPercent: (i + 1) * 300 }, { xPercent: i * 30 });
+      });
 
       ScrollTrigger.create({
         animation: tl,
@@ -38,12 +38,9 @@ export const Testimonials = () => {
   }, []);
 
   return (
-    <div
-      ref={containerRef}
-      className="h-screen overflow-hidden w-full flex flex-col gap-10"
-    >
+    <div ref={containerRef} className="h-screen  w-full flex flex-col gap-10">
       <Headings text="TESTIMONIALS" />
-      <div className="p-10 gap-0 relative w-full   h-full text-white  ">
+      <div className="p-10 overflow-hidden gap-0 relative w-full   h-full text-white  ">
         {data.testimonials.map((item, i) => (
           <div
             key={i}
