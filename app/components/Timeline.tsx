@@ -20,7 +20,7 @@ export const Timeline = () => {
 						xPercent: i % 2 === 0 ? -100 : 100,
 						scrollTrigger: {
 							trigger: el,
-							start: "top 75%",
+							start: "top bottom",
 							end: `+=${elHeight}`,
 							scrub: true,
 						},
