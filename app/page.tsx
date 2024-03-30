@@ -17,17 +17,17 @@ import { Navbar } from "./components/Navbar";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-	return (
-		<main className="    bg-neutral-900">
-			<Hero />
-			<Testimonials />
-			<Skills />
-			<Intro />
-			<Features />
-			<About />
-			<Timeline />
-			<Projects />
-			<Contact />
-		</main>
-	);
+  return (
+    <main className="    bg-neutral-900">
+      <Hero />
+      <Intro />
+      <About />
+      <Features />
+      <Timeline />
+      <Skills />
+      <Projects />
+      <Testimonials />
+      <Contact />
+    </main>
+  );
 }

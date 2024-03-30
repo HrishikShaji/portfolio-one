@@ -87,13 +87,13 @@ export const Skills = () => {
 					<div
 						key={i}
 						ref={(el) => (skillRefs.current[i] = el)}
-						className="skill overflow-hidden relative w-full h-full py-10 text-2xl font-semibold"
+						className="skill border-y-4 border-neutral-900 bg-neutral-900 overflow-hidden relative flex items-center justify-center w-full h-full py-10 text-2xl font-semibold"
 					>
 						<div
 							ref={(el) => (overlayRefs.current[i] = el)}
-							className="h-full w-full absolute left-0 top-0 bg-red-500 "
+							className="h-full w-full mix-blend-difference absolute left-0 top-0 bg-red-500 "
 						></div>
-						<h1 className="absolute z-10 text-neutral-900">{item.name}</h1>
+						<h1 className="z-10 text-neutral-900">{item.name}</h1>
 					</div>
 				))}
 			</div>
