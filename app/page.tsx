@@ -12,21 +12,22 @@ import gsap from "gsap";
 import { Timeline } from "./components/Timeline";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { Testimonials } from "./components/Testimonials";
+import { Navbar } from "./components/Navbar";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Home() {
-  return (
-    <main className="    bg-neutral-900">
-      <Hero />
-      <Testimonials />
-      <Skills />
-      <Intro />
-      <Features />
-      <About />
-      <Timeline />
-      <Projects />
-      <Contact />
-    </main>
-  );
+	return (
+		<main className="    bg-neutral-900">
+			<Hero />
+			<Testimonials />
+			<Skills />
+			<Intro />
+			<Features />
+			<About />
+			<Timeline />
+			<Projects />
+			<Contact />
+		</main>
+	);
 }

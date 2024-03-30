@@ -46,7 +46,7 @@ export const Testimonials = () => {
 						key={i}
 						ref={(el) => (testimonialRefs.current[i] = el)}
 						style={{ left: `${(i + 1) * 100}px` }}
-						className={`w-[700px] absolute flex h-[300px]   text-2xl font-semibold`}
+						className={`w-[calc(100vw_-_700px)] absolute flex h-[300px]   text-2xl font-semibold`}
 					>
 						<div className="h-full p-5 w-[30%]  bg-red-500">
 							<Image
