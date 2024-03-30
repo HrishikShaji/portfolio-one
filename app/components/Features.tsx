@@ -44,7 +44,7 @@ export const Features = () => {
             {
               scale: 2,
               transformOrigin: "top left",
-              color: "white",
+              color: "#dc2626",
               scrollTrigger: {
                 trigger: el,
                 start: `top 500px`,
@@ -62,32 +62,29 @@ export const Features = () => {
 
   return (
     <div ref={containerRef} className="h-full w-full flex text-white ">
-      <div
-        ref={pinRef}
-        className=" h-screen w-[50%]  flex justify-center items-center"
-      >
+      <div ref={pinRef} className=" h-screen w-[40%]   flex  items-center">
         <div
           ref={titleRef}
-          className="flex font-audiowide flex-col gap-0 leading-none text-9xl items-start"
+          className="flex font-audiowide flex-col gap-0 pl-20 text-[140px] leading-[140px] items-start"
         >
-          <h1 className=" text-red-500 font-audiowide">{`I'M`}</h1>
+          <h1 className=" text-neutral-800 font-audiowide">{`I'M`}</h1>
           <div className="overflow-hidden">
-            <h1 ref={textRef} className="font-audiowide ">
+            <h1 ref={textRef} className="font-audiowide text-red-600">
               BEST
             </h1>
           </div>
-          <h1 className="font-audiowide text-red-500">AT</h1>
+          <h1 className="font-audiowide text-neutral-800">AT</h1>
         </div>
       </div>
       <div
         ref={targetRef}
-        className=" flex flex-col   w-[50%] gap-[50vh] pt-[100vh] pb-[50vh]  justify-around"
+        className=" flex flex-col   w-[60%] gap-[50vh] pt-[100vh] pb-[50vh]  justify-around"
       >
         {data.features.data.map((item, i) => (
           <h1
             ref={(el) => (featureRefs.current[i] = el)}
             key={i}
-            className="text-4xl smooth font-audiowide text-red-500 w-[200px] flex-wrap mix-blend-difference z-10"
+            className="text-4xl smooth font-audiowide text-neutral-800 w-[200px] flex-wrap z-10"
           >
             {item.title}
           </h1>

@@ -33,14 +33,14 @@ export const Intro = () => {
     <div
       ref={containerRef}
       id={data.intro.id}
-      className="py-40  text-white w-full relative bg-neutral-900  flex flex-col overflow-hidden"
+      className="py-40 px-20  text-white w-full relative bg-neutral-900  flex flex-col overflow-hidden"
     >
-      <h1 className="text-9xl font-audiowide mix-blend-difference text-red-500">
+      <h1 className="text-[140px] leading-[140px] font-audiowide  text-neutral-800">
         I CREATE{" "}
         {["C", "O", "O", "L"].map((item, i) => (
           <span
             key={i}
-            className="text-white inline-block"
+            className="text-red-600 inline-block"
             ref={(el) => (textRefs.current[i] = el)}
           >
             {item}

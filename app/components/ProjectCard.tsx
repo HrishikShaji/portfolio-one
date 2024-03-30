@@ -44,12 +44,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ title, img }) => {
     return () => ctx.kill();
   }, []);
   return (
-    <div
-      ref={cardRef}
-      className="card  flex flex-col gap-10 px-10  h-[100vh] w-full top-0 "
-    >
-      <div className="flex border-y-2 text-white items-center  py-5 border-white justify-between ">
-        <h1 className="text-3xl">{title}</h1>
+    <div ref={cardRef} className="card  flex flex-col  h-full w-full top-0 ">
+      <div className="flex  text-white items-center  py-5 bg-red-600 justify-between ">
+        <h1 className="text-3xl text-neutral-800">{title}</h1>
       </div>
       <Image
         ref={projectRef}
