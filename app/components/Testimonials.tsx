@@ -21,7 +21,7 @@ export const Testimonials = () => {
 			const tl = gsap.timeline();
 
 			testimonialRefs.current.forEach((el, i) => {
-				tl.fromTo(el, { xPercent: (i + 1) * 300 }, { xPercent: 0 });
+				tl.fromTo(el, { xPercent: 300 }, { xPercent: 0 });
 			});
 
 			ScrollTrigger.create({
