@@ -1,11 +1,12 @@
 "use client";
 import gsap from "gsap";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
+Image;
 import { useLayoutEffect, useRef } from "react";
 
 interface ProjectCardProps {
 	title: string;
-	img: string;
+	img: StaticImageData;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ title, img }) => {
