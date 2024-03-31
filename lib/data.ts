@@ -153,7 +153,7 @@ export const data = {
 			{
 				id: 1,
 				title: "project one",
-				img: "https://images.pexels.com/photos/210158/pexels-photo-210158.jpeg?auto=compress&cs=tinysrgb&w=600",
+				img: "https://images.pexels.com/photos/3780104/pexels-photo-3780104.png",
 				tools: "HTML/CSS/JAVASCRIPT",
 				year: "2015",
 				code: "",
@@ -162,7 +162,7 @@ export const data = {
 			{
 				id: 2,
 				title: "project two",
-				img: "https://images.pexels.com/photos/414860/pexels-photo-414860.jpeg?auto=compress&cs=tinysrgb&w=600",
+				img: "https://images.pexels.com/photos/2693208/pexels-photo-2693208.png",
 				tools: "HTML/CSS/JAVASCRIPT",
 				year: "2016",
 				code: "",
@@ -171,7 +171,7 @@ export const data = {
 			{
 				id: 3,
 				title: "project three",
-				img: "https://images.pexels.com/photos/175771/pexels-photo-175771.jpeg?auto=compress&cs=tinysrgb&w=600",
+				img: "https://images.pexels.com/photos/2693212/pexels-photo-2693212.png",
 				tools: "HTML/CSS/JAVASCRIPT",
 				year: "2017",
 				code: "",
@@ -180,7 +180,7 @@ export const data = {
 			{
 				id: 4,
 				title: "project four",
-				img: "https://images.pexels.com/photos/296324/pexels-photo-296324.jpeg?auto=compress&cs=tinysrgb&w=600",
+				img: "https://images.pexels.com/photos/1616403/pexels-photo-1616403.jpeg",
 				tools: "HTML/CSS/JAVASCRIPT",
 				year: "2018",
 				code: "",
@@ -189,7 +189,7 @@ export const data = {
 			{
 				id: 5,
 				title: "project five",
-				img: "https://images.pexels.com/photos/3862601/pexels-photo-3862601.jpeg?auto=compress&cs=tinysrgb&w=600",
+				img: "https://images.pexels.com/photos/1293120/pexels-photo-1293120.jpeg",
 				tools: "HTML/CSS/JAVASCRIPT",
 				year: "2019",
 				code: "",
@@ -198,7 +198,7 @@ export const data = {
 			{
 				id: 6,
 				title: "project six",
-				img: "https://images.pexels.com/photos/562211/pexels-photo-562211.jpeg?auto=compress&cs=tinysrgb&w=600",
+				img: "https://images.pexels.com/photos/2130475/pexels-photo-2130475.jpeg",
 				tools: "HTML/CSS/JAVASCRIPT",
 				year: "2020",
 				code: "",
@@ -207,7 +207,7 @@ export const data = {
 			{
 				id: 7,
 				title: "project seven",
-				img: "https://images.pexels.com/photos/247676/pexels-photo-247676.jpeg?auto=compress&cs=tinysrgb&w=600",
+				img: "https://images.pexels.com/photos/1509534/pexels-photo-1509534.jpeg",
 				tools: "HTML/CSS/JAVASCRIPT",
 				year: "2021",
 				code: "",
@@ -216,7 +216,7 @@ export const data = {
 			{
 				id: 8,
 				title: "project eight",
-				img: "https://images.pexels.com/photos/7709017/pexels-photo-7709017.jpeg?auto=compress&cs=tinysrgb&w=600",
+				img: "https://images.pexels.com/photos/2471235/pexels-photo-2471235.jpeg",
 				tools: "HTML/CSS/JAVASCRIPT",
 				year: "2022",
 				code: "",
@@ -225,7 +225,7 @@ export const data = {
 			{
 				id: 9,
 				title: "project nine",
-				img: "https://images.pexels.com/photos/8386367/pexels-photo-8386367.jpeg?auto=compress&cs=tinysrgb&w=600",
+				img: "https://images.pexels.com/photos/2156881/pexels-photo-2156881.jpeg",
 				tools: "HTML/CSS/JAVASCRIPT",
 				year: "2023",
 				code: "",
@@ -234,7 +234,7 @@ export const data = {
 			{
 				id: 10,
 				title: "project ten",
-				img: "https://images.pexels.com/photos/8386429/pexels-photo-8386429.jpeg?auto=compress&cs=tinysrgb&w=600",
+				img: "https://images.pexels.com/photos/1109354/pexels-photo-1109354.jpeg",
 				tools: "HTML/CSS/JAVASCRIPT",
 				year: "2024",
 				code: "",
@@ -243,7 +243,7 @@ export const data = {
 			{
 				id: 11,
 				title: "project eleven",
-				img: "https://images.pexels.com/photos/8386367/pexels-photo-8386367.jpeg?auto=compress&cs=tinysrgb&w=600",
+				img: "https://images.pexels.com/photos/1566909/pexels-photo-1566909.jpeg",
 				tools: "HTML/CSS/JAVASCRIPT",
 				year: "2023",
 				code: "",
@@ -252,7 +252,7 @@ export const data = {
 			{
 				id: 12,
 				title: "project twelve",
-				img: "https://images.pexels.com/photos/8386429/pexels-photo-8386429.jpeg?auto=compress&cs=tinysrgb&w=600",
+				img: "https://images.pexels.com/photos/2441454/pexels-photo-2441454.jpeg",
 				tools: "HTML/CSS/JAVASCRIPT",
 				year: "2024",
 				code: "",
