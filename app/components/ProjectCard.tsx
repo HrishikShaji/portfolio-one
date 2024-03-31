@@ -15,35 +15,42 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ title, img }) => {
 
 	useLayoutEffect(() => {
 		let ctx = gsap.context(() => {
-			gsap.set(projectRef.current, { scale: 0 });
-			gsap.to(projectRef.current, {
-				scale: 1,
-				ease: "none",
-				transformOrigin: "right top",
+			gsap.fromTo(
+				projectRef.current,
+				{ scale: 0 },
+				{
+					scale: 1,
+					ease: "none",
+					transformOrigin: "right top",
 
-				scrollTrigger: {
-					trigger: cardRef.current,
-					start: "top bottom",
-					end: "top top",
-					scrub: true,
+					scrollTrigger: {
+						trigger: cardRef.current,
+						start: "top bottom",
+						end: "top top",
+						scrub: true,
+					},
 				},
-			});
+			);
 
-			gsap.to(projectRef.current, {
-				scale: 0,
-				ease: "none",
-				transformOrigin: "left bottom",
-				immediateRender: false,
-				scrollTrigger: {
-					trigger: cardRef.current,
-					start: "bottom bottom",
-					end: "bottom top",
-					scrub: true,
+			gsap.fromTo(
+				projectRef.current,
+				{ scale: 1 },
+				{
+					scale: 0,
+					ease: "none",
+					transformOrigin: "left bottom",
+					immediateRender: false,
+					scrollTrigger: {
+						trigger: cardRef.current,
+						start: "bottom bottom",
+						end: "bottom top",
+						scrub: true,
+					},
 				},
-			});
+			);
 		}, cardRef);
 
-		return () => ctx.revert();
+		return () => ctx.kill();
 	}, []);
 	return (
 		<div ref={cardRef} className="  flex flex-col  h-screen w-full top-0 ">

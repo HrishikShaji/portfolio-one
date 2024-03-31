@@ -15,9 +15,7 @@ export const Testimonials = () => {
 	useLayoutEffect(() => {
 		let ctx = gsap.context(() => {
 			if (!containerRef.current) return;
-			const width = window.innerWidth - 40;
 
-			const gap = width / 6;
 			const tl = gsap.timeline();
 
 			testimonialRefs.current.forEach((el, i) => {
