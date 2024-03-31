@@ -32,32 +32,28 @@ export const Features = () => {
           end: "bottom bottom",
         },
       });
+      const timeline = gsap.timeline();
+      const top = textRef.current?.offsetTop;
       featureRefs.current.forEach((el) => {
-        const timeline = gsap.timeline();
-        const rect = titleRef.current?.getBoundingClientRect();
-        const textRect = textRef.current?.getBoundingClientRect();
-
-        if (rect && textRect) {
-          timeline.fromTo(
-            el,
-            { scale: 1 },
-            {
-              scale: 2,
-              transformOrigin: "top left",
-              color: "#dc2626",
-              scrollTrigger: {
-                trigger: el,
-                start: `top 500px`,
-                end: `top ${textRef.current?.offsetTop}px`,
-                scrub: true,
-              },
+        timeline.fromTo(
+          el,
+          { scale: 1 },
+          {
+            scale: 2,
+            transformOrigin: "top left",
+            color: "#dc2626",
+            scrollTrigger: {
+              trigger: el,
+              start: `top 500px`,
+              end: `top ${top}px`,
+              scrub: true,
             },
-          );
-        }
+          },
+        );
       });
     }, containerRef);
 
-    return () => ctx.kill();
+    return () => ctx.revert();
   }, []);
 
   return (

@@ -35,7 +35,7 @@ export const Contact = () => {
       });
     }, containerRef);
 
-    return () => ctx.kill();
+    return () => ctx.revert();
   }, []);
   return (
     <div

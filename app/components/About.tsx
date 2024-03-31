@@ -37,7 +37,7 @@ export const About = () => {
         });
       }, containerRef);
 
-      return () => ctx.kill();
+      return () => ctx.revert();
     }
   }, []);
 
