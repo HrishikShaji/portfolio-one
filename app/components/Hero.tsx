@@ -1,16 +1,11 @@
 "use client";
 
-import { data } from "../lib/data";
 import { Marquee } from "./Marquee";
 import { SplitText } from "./SplitText";
 
-
 export const Hero = () => {
 	return (
-		<div
-			id={data.hero.id}
-			className="h-screen w-full  flex relative  flex-col  "
-		>
+		<div className="h-screen w-full  flex relative  flex-col  ">
 			{Array.from({ length: 20 }).map((_, j) => (
 				<Marquee key={j} speed={0.1}>
 					{Array.from({ length: 10 }).map((_, i) => (
