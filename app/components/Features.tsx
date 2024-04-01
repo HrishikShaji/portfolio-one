@@ -1,11 +1,14 @@
 "use client";
 
-import { data } from "@/lib/data";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useLayoutEffect, useRef } from "react";
 
-export const Features = () => {
+interface FeaturesProps {
+  data: any[];
+}
+
+export const Features: React.FC<FeaturesProps> = ({ data }) => {
   const pinRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
   const targetRef = useRef<HTMLDivElement>(null);
@@ -78,7 +81,7 @@ export const Features = () => {
         ref={targetRef}
         className=" flex flex-col   w-[60%] gap-[50vh] pt-[100vh] pb-[50vh]  justify-around"
       >
-        {data.features.data.map((item, i) => (
+        {data.map((item, i) => (
           <h1
             ref={(el) => (featureRefs.current[i] = el)}
             key={i}

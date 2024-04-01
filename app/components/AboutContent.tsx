@@ -1,12 +1,15 @@
 "use client";
 
 import { useLayoutEffect, useRef } from "react";
-import { data } from "@/lib/data";
 import SplitType from "split-type";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
-export const AboutContent = () => {
+interface AboutContentProps {
+  description: string;
+}
+
+export const AboutContent: React.FC<AboutContentProps> = ({ description }) => {
   const paraRef = useRef<HTMLParagraphElement>(null);
 
   useLayoutEffect(() => {
@@ -45,7 +48,7 @@ export const AboutContent = () => {
 
   return (
     <p ref={paraRef} className="text-red-600 smooth ">
-      {data.about.description}
+      {description}
     </p>
   );
 };

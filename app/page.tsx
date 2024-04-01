@@ -7,6 +7,7 @@ import { Projects } from "./components/Projects";
 import { Skills } from "./components/Skills";
 import { Timeline } from "./components/Timeline";
 import { Testimonials } from "./components/Testimonials";
+import data from "@/public/data.json";
 
 export default function Home() {
   return (
@@ -14,11 +15,14 @@ export default function Home() {
       <Hero />
       <Intro />
       <About />
-      <Features />
-      <Timeline />
-      <Skills />
-      <Projects />
-      <Testimonials />
+      <Features data={data.features.data} />
+      <Timeline
+        educationData={data.education.data}
+        experienceData={data.experience.data}
+      />
+      <Skills data={data.skills.data} />
+      <Projects data={data.projects.data} />
+      <Testimonials data={data.testimonials} />
       <Contact />
     </main>
   );

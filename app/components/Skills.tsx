@@ -1,14 +1,16 @@
 "use client";
-import { useEffect, useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import gsap, { ScrollTrigger } from "gsap/all";
 import { Headings } from "./Headings";
-import { data } from "@/lib/data";
 
-export const Skills = () => {
+interface SkillsProps {
+  data: any[];
+}
+
+export const Skills: React.FC<SkillsProps> = ({ data }) => {
   const skillRefs = useRef<(HTMLDivElement | null)[]>([]);
   const overlayRefs = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
-  const tl = useRef(null);
 
   const directions = [
     "right",
@@ -83,7 +85,7 @@ export const Skills = () => {
     <div ref={containerRef} className=" flex flex-col">
       <Headings text="SKILLS" />
       <div className="p-20  w-full place-items-center h-full text-white grid grid-cols-4 ">
-        {data.skills.data.map((item, i) => (
+        {data.map((item, i) => (
           <div
             key={i}
             ref={(el) => (skillRefs.current[i] = el)}
