@@ -2,7 +2,6 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import Image, { StaticImageData } from "next/image";
-Image;
 import { useLayoutEffect, useRef } from "react";
 
 interface ProjectCardProps {

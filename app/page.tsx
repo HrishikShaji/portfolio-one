@@ -1,5 +1,3 @@
-"use client";
-
 import { About } from "./components/About";
 import { Contact } from "./components/Contact";
 import { Features } from "./components/Features";
@@ -12,7 +10,7 @@ import { Testimonials } from "./components/Testimonials";
 
 export default function Home() {
   return (
-    <main className="    bg-neutral-900">
+    <main className="bg-neutral-900">
       <Hero />
       <Intro />
       <About />
