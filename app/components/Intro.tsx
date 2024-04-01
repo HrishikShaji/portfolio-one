@@ -1,14 +1,12 @@
 "use client";
 
 import { useLayoutEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { gsap } from "../gsap";
 
 export const Intro = () => {
 	const textRefs = useRef<(HTMLSpanElement | null)[]>([]);
 	const containerRef = useRef<HTMLDivElement>(null);
 	useLayoutEffect(() => {
-		gsap.registerPlugin(ScrollTrigger);
 		let ctx = gsap.context(() => {
 			gsap.set(textRefs.current, {
 				xPercent: (i) => (i + 1) * 1000,

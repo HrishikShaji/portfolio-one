@@ -1,6 +1,5 @@
 "use client";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { gsap } from "../gsap";
 import Image, { StaticImageData } from "next/image";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
@@ -19,7 +18,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ title, img }) => {
 	}, []);
 
 	useLayoutEffect(() => {
-		gsap.registerPlugin(ScrollTrigger);
 		if (!isMounted) return;
 		let ctx = gsap.context(() => {
 			gsap.fromTo(
@@ -63,6 +61,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ title, img }) => {
 		<div ref={cardRef} className="  flex flex-col  h-screen w-full top-0 ">
 			<div className="h-full w-full relative">
 				<Image
+					priority
 					ref={projectRef}
 					className=" object-cover "
 					fill

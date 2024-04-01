@@ -1,8 +1,7 @@
 "use client";
 
 import { ReactNode, useEffect, useLayoutEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { gsap } from "../gsap";
 
 interface MarqueeProps {
 	speed: number;
@@ -21,7 +20,6 @@ export const Marquee: React.FC<MarqueeProps> = ({ children, speed }) => {
 	}, []);
 
 	useLayoutEffect(() => {
-		gsap.registerPlugin(ScrollTrigger);
 		let xPercent = 0;
 		let animationId: number;
 

@@ -1,10 +1,9 @@
 "use client";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/all";
+import { gsap } from "../gsap";
 
 export const ContactForm = () => {
-	const [isMounted, setIsMounted] = useState(false)
+	const [isMounted, setIsMounted] = useState(false);
 	const contactRefs = useRef<
 		(HTMLInputElement | HTMLTextAreaElement | HTMLButtonElement | null)[]
 	>([]);
@@ -12,11 +11,10 @@ export const ContactForm = () => {
 	const containerRef = useRef<HTMLFormElement>(null);
 
 	useEffect(() => {
-		setIsMounted(true)
-	}, [])
+		setIsMounted(true);
+	}, []);
 
 	useLayoutEffect(() => {
-		gsap.registerPlugin(ScrollTrigger);
 		if (!isMounted) return;
 		let ctx = gsap.context(() => {
 			contactRefs.current.forEach((el) => {
