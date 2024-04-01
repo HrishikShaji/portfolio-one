@@ -3,7 +3,7 @@
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "../gsap";
 
-export const Intro = () => {
+const Intro = () => {
 	const textRefs = useRef<(HTMLSpanElement | null)[]>([]);
 	const containerRef = useRef<HTMLDivElement>(null);
 	useLayoutEffect(() => {
@@ -48,3 +48,5 @@ export const Intro = () => {
 		</div>
 	);
 };
+
+export default Intro;

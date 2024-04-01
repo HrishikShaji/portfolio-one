@@ -6,7 +6,7 @@ interface TimelineProps {
   experienceData: any[];
 }
 
-export const Timeline: React.FC<TimelineProps> = ({
+const Timeline: React.FC<TimelineProps> = ({
   educationData,
   experienceData,
 }) => {
@@ -40,3 +40,5 @@ export const Timeline: React.FC<TimelineProps> = ({
     </div>
   );
 };
+
+export default Timeline;

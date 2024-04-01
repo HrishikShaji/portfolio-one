@@ -5,7 +5,7 @@ interface ProjectsProps {
   data: any[];
 }
 
-export const Projects: React.FC<ProjectsProps> = ({ data }) => {
+const Projects: React.FC<ProjectsProps> = ({ data }) => {
   return (
     <div className=" flex flex-col ">
       <Headings text="PROJECTS" />
@@ -17,3 +17,5 @@ export const Projects: React.FC<ProjectsProps> = ({ data }) => {
     </div>
   );
 };
+
+export default Projects;
