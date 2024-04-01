@@ -2,6 +2,7 @@
 
 import { data } from "@/lib/data";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 import { useLayoutEffect, useRef } from "react";
 
 export const Features = () => {
@@ -13,6 +14,7 @@ export const Features = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
     let ctx = gsap.context(() => {
       gsap.set(textRef.current, { yPercent: 200 });
       gsap.to(textRef.current, {

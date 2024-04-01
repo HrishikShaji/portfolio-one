@@ -1,14 +1,16 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import { data } from "@/lib/data";
 import SplitType from "split-type";
 import gsap from "gsap";
 import { Headings } from "./Headings";
+import { ScrollTrigger } from "gsap/all";
 
 export const About = () => {
   const paraRef = useRef<HTMLParagraphElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
     if (paraRef.current && containerRef.current) {
       const childSplit = new SplitType(paraRef.current, {
         types: "lines",

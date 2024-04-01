@@ -1,4 +1,5 @@
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 import { useLayoutEffect, useRef } from "react";
 
 interface SplitTextProps {
@@ -9,6 +10,7 @@ export const SplitText: React.FC<SplitTextProps> = ({ text }) => {
   const letterRefs = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLHeadingElement>(null);
   useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
     let ctx = gsap.context(() => {
       gsap.fromTo(
         letterRefs.current,

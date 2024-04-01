@@ -3,6 +3,7 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { data } from "../lib/data";
 import { Headings } from "./Headings";
+import { ScrollTrigger } from "gsap/all";
 
 export const Contact = () => {
   const contactRefs = useRef<
@@ -12,6 +13,7 @@ export const Contact = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
     let ctx = gsap.context(() => {
       contactRefs.current.forEach((el) => {
         gsap.fromTo(

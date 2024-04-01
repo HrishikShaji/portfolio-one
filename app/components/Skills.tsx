@@ -1,9 +1,8 @@
 "use client";
 import { useEffect, useLayoutEffect, useRef } from "react";
-import gsap from "gsap/all";
+import gsap, { ScrollTrigger } from "gsap/all";
 import { Headings } from "./Headings";
 import { data } from "@/lib/data";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 export const Skills = () => {
   const skillRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -32,6 +31,7 @@ export const Skills = () => {
   const indexes = [0, 1, 2, 3, 7, 6, 5, 4, 8, 9, 10, 11, 15, 14, 13, 12];
 
   useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
     let ctx = gsap.context(() => {
       function getValue(index: number) {
         if (directions[index] === "right") {

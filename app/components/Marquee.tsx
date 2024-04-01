@@ -2,6 +2,7 @@
 
 import { ReactNode, useEffect, useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
 interface MarqueeProps {
   speed: number;
@@ -14,6 +15,7 @@ export const Marquee: React.FC<MarqueeProps> = ({ children, speed }) => {
   const slider = useRef(null);
   const directionRef = useRef(-1); // Use useRef to store direction value
   useLayoutEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
     let xPercent = 0;
     let animationId: number;
 
