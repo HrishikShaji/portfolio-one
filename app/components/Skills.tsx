@@ -13,43 +13,33 @@ const Skills: React.FC<SkillsProps> = ({ data }) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    const directions = [
-      "right",
-      "right",
-      "right",
-      "right",
-      "left",
-      "left",
-      "left",
-      "down",
-      "down",
-      "right",
-      "right",
-      "right",
-      "left",
-      "left",
-      "left",
-      "down",
+    const positions = [
+      { x: -110, y: 0 },
+      { x: -110, y: 0 },
+      { x: -110, y: 0 },
+      { x: -110, y: 0 },
+      { x: 110, y: 0 },
+      { x: 110, y: 0 },
+      { x: 110, y: 0 },
+      { x: 0, y: -110 },
+      { x: 0, y: -110 },
+      { x: -110, y: 0 },
+      { x: -110, y: 0 },
+      { x: -110, y: 0 },
+      { x: 110, y: 0 },
+      { x: 110, y: 0 },
+      { x: 110, y: 0 },
+      { x: 0, y: -110 },
     ];
     const indexes = [0, 1, 2, 3, 7, 6, 5, 4, 8, 9, 10, 11, 15, 14, 13, 12];
     let ctx = gsap.context(() => {
-      function getValue(index: number) {
-        if (directions[index] === "right") {
-          return { x: -110, y: 0 };
-        } else if (directions[index] === "left") {
-          return { x: 110, y: 0 };
-        } else {
-          return { x: 0, y: -110 };
-        }
-      }
-
       const tl = gsap.timeline();
       indexes.forEach((index) => {
         tl.fromTo(
           overlayRefs.current[index],
           {
-            xPercent: getValue(index).x,
-            yPercent: getValue(index).y,
+            xPercent: positions[index].x,
+            yPercent: positions[index].y,
           },
           {
             xPercent: 0,
