@@ -1,22 +1,15 @@
+import { educations, experiences } from "@/public/data";
 import { Headings } from "./Headings";
 import { TimelineRow } from "./TimelineRow";
 
-interface TimelineProps {
-	educationData: any[];
-	experienceData: any[];
-}
-
-const Timeline: React.FC<TimelineProps> = ({
-	educationData,
-	experienceData,
-}) => {
-	const educationLength = educationData.length;
+const Timeline = () => {
+	const educationLength = educations.length;
 
 	return (
 		<div className="flex flex-col ">
 			<Headings text="JOURNEY"></Headings>
 			<div className="flex flex-col py-20 overflow-hidden">
-				{educationData.map((item, i) => (
+				{educations.map((item, i) => (
 					<TimelineRow
 						key={i}
 						i={i}
@@ -26,7 +19,7 @@ const Timeline: React.FC<TimelineProps> = ({
 						desc={item.description}
 					/>
 				))}
-				{experienceData.map((item, i) => (
+				{experiences.map((item, i) => (
 					<TimelineRow
 						key={i + educationLength}
 						i={i + educationLength}

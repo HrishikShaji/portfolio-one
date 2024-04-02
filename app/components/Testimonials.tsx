@@ -3,12 +3,9 @@ import { useLayoutEffect, useRef } from "react";
 import { Headings } from "./Headings";
 import { TestimonialCard } from "./TestimonialCard";
 import { gsap, ScrollTrigger } from "../gsap";
+import { testimonials } from "@/public/data";
 
-interface TestimonialsProps {
-	data: any[];
-}
-
-const Testimonials: React.FC<TestimonialsProps> = ({ data }) => {
+const Testimonials = () => {
 	const testimonialRefs = useRef<(HTMLDivElement | null)[]>([]);
 	const containerRef = useRef<HTMLDivElement>(null);
 
@@ -39,7 +36,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ data }) => {
 		<div ref={containerRef} className="h-screen  w-full flex flex-col gap-10">
 			<Headings text="TESTIMONIALS" />
 			<div className="p-10 overflow-hidden gap-0 relative w-full  h-full text-white  ">
-				{data.map((item, i) => (
+				{testimonials.map((item, i) => (
 					<div
 						ref={(el) => (testimonialRefs.current[i] = el)}
 						key={i}

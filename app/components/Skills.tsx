@@ -2,12 +2,9 @@
 import { useLayoutEffect, useRef } from "react";
 import { Headings } from "./Headings";
 import { gsap, ScrollTrigger } from "../gsap";
+import { skills } from "@/public/data";
 
-interface SkillsProps {
-	data: any[];
-}
-
-const Skills: React.FC<SkillsProps> = ({ data }) => {
+const Skills = () => {
 	const skillRefs = useRef<(HTMLDivElement | null)[]>([]);
 	const overlayRefs = useRef<(HTMLDivElement | null)[]>([]);
 	const containerRef = useRef<HTMLDivElement>(null);
@@ -75,7 +72,7 @@ const Skills: React.FC<SkillsProps> = ({ data }) => {
 		<div ref={containerRef} className=" flex flex-col">
 			<Headings text="SKILLS" />
 			<div className="p-20  w-full place-items-center h-full text-white grid grid-cols-4 ">
-				{data.map((item, i) => (
+				{skills.map((item, i) => (
 					<div
 						key={i}
 						ref={(el) => (skillRefs.current[i] = el)}

@@ -1,4 +1,3 @@
-import data from "@/public/data.json";
 import dynamic from "next/dynamic";
 import Hero from "./components/Hero";
 
@@ -17,14 +16,11 @@ export default function Home() {
 			<Hero />
 			<Intro />
 			<About />
-			<Features data={data.features.data} />
-			<Timeline
-				educationData={data.education.data}
-				experienceData={data.experience.data}
-			/>
-			<Skills data={data.skills.data} />
-			<Projects data={data.projects.data} />
-			<Testimonials data={data.testimonials} />
+			<Features />
+			<Timeline />
+			<Skills />
+			<Projects />
+			<Testimonials />
 			<Contact />
 		</main>
 	);

@@ -2,12 +2,9 @@
 
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "../gsap";
+import { features } from "@/public/data";
 
-interface FeaturesProps {
-	data: any[];
-}
-
-const Features: React.FC<FeaturesProps> = ({ data }) => {
+const Features = () => {
 	const pinRef = useRef<HTMLDivElement>(null);
 	const textRef = useRef<HTMLHeadingElement>(null);
 	const targetRef = useRef<HTMLDivElement>(null);
@@ -79,7 +76,7 @@ const Features: React.FC<FeaturesProps> = ({ data }) => {
 				ref={targetRef}
 				className=" flex flex-col   w-[60%] gap-[50vh] pt-[100vh] pb-[50vh]  justify-around"
 			>
-				{data.map((item, i) => (
+				{features.map((item, i) => (
 					<h1
 						ref={(el) => (featureRefs.current[i] = el)}
 						key={i}
