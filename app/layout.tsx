@@ -25,7 +25,10 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={`${inter.variable} ${audiowide.variable}`}>
+			<body
+				suppressHydrationWarning={true}
+				className={`${inter.variable} ${audiowide.variable}`}
+			>
 				{/**        <Navbar />*/}
 				{children}{" "}
 			</body>

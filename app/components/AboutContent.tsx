@@ -45,7 +45,10 @@ export const AboutContent: React.FC<AboutContentProps> = ({ description }) => {
 	}, []);
 
 	return (
-		<p ref={paraRef} className="text-red-600 smooth ">
+		<p
+			ref={paraRef}
+			className="p-20 text-3xl font-audiowide text-red-600 smooth "
+		>
 			{description}
 		</p>
 	);

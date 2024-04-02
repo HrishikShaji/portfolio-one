@@ -1,4 +1,4 @@
-import { Hero } from "./components/Hero";
+import Hero from "./components/Hero";
 import data from "@/public/data.json";
 import dynamic from "next/dynamic";
 
@@ -12,20 +12,20 @@ const Testimonials = dynamic(() => import("./components/Testimonials"));
 const Contact = dynamic(() => import("./components/Contact"));
 
 export default function Home() {
-  return (
-    <main className="bg-neutral-900">
-      <Hero />
-      <Intro />
-      <About />
-      <Features data={data.features.data} />
-      <Timeline
-        educationData={data.education.data}
-        experienceData={data.experience.data}
-      />
-      <Skills data={data.skills.data} />
-      <Projects data={data.projects.data} />
-      <Testimonials data={data.testimonials} />
-      <Contact />
-    </main>
-  );
+	return (
+		<main className="bg-neutral-900">
+			<Hero />
+			<Intro />
+			<About />
+			<Features data={data.features.data} />
+			<Timeline
+				educationData={data.education.data}
+				experienceData={data.experience.data}
+			/>
+			<Skills data={data.skills.data} />
+			<Projects data={data.projects.data} />
+			<Testimonials data={data.testimonials} />
+			<Contact />
+		</main>
+	);
 }

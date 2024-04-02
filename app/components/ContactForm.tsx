@@ -42,7 +42,7 @@ export const ContactForm = () => {
 		return () => ctx.revert();
 	}, [isMounted]);
 	return (
-		<form className="flex flex-col gap-3 items-center ">
+		<form ref={containerRef} className="flex flex-col gap-3 items-center ">
 			<input
 				ref={(el) => (contactRefs.current[0] = el)}
 				className="input border-b-2 w-full border-white p-2 bg-transparent"
