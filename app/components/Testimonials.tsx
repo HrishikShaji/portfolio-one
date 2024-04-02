@@ -38,15 +38,15 @@ const Testimonials: React.FC<TestimonialsProps> = ({ data }) => {
 	return (
 		<div ref={containerRef} className="h-screen  w-full flex flex-col gap-10">
 			<Headings text="TESTIMONIALS" />
-			<div className="p-10 overflow-hidden gap-0 relative w-full   h-full text-white  ">
+			<div className="p-10 overflow-hidden gap-0 relative w-full  h-full text-white  ">
 				{data.map((item, i) => (
-					<div ref={(el) => (testimonialRefs.current[i] = el)} key={i}>
-						<TestimonialCard
-							img={item.img}
-							desc={item.desc}
-							name={item.name}
-							i={i}
-						/>
+					<div
+						ref={(el) => (testimonialRefs.current[i] = el)}
+						key={i}
+						style={{ left: `${(i + 1) * 100}px` }}
+						className={`w-[calc(100vw_-_700px)] absolute flex h-full pb-40   font-semibold`}
+					>
+						<TestimonialCard img={item.img} desc={item.desc} name={item.name} />
 					</div>
 				))}
 			</div>

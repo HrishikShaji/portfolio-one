@@ -3,21 +3,23 @@ import Image from "next/image";
 interface CustomImageProps {
 	src: string;
 	alt: string;
-	priority?: boolean;
+	width: number;
+	height: number;
 }
 
 export const CustomImage: React.FC<CustomImageProps> = ({
 	src,
 	alt,
-	priority,
+	width,
+	height,
 }) => {
 	return (
 		<Image
-			className=" object-cover "
+			className="  object-cover  "
 			src={src}
 			alt={alt}
-			width={650}
-			height={650}
+			width={width}
+			height={height}
 		/>
 	);
 };

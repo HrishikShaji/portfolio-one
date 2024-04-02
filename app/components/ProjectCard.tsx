@@ -2,16 +2,17 @@
 import { gsap } from "../gsap";
 import Image, { StaticImageData } from "next/image";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { CustomImage } from "./CustomImage";
 
 interface ProjectCardProps {
 	title: string;
-	img: StaticImageData;
+	img: string;
 }
 
 export const ProjectCard: React.FC<ProjectCardProps> = ({ title, img }) => {
 	const [isMounted, setIsMounted] = useState(false);
 	const cardRef = useRef<HTMLDivElement>(null);
-	const projectRef = useRef<HTMLImageElement>(null);
+	const projectRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		setIsMounted(true);
@@ -58,17 +59,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ title, img }) => {
 		return () => ctx.kill();
 	}, [isMounted]);
 	return (
-		<div ref={cardRef} className="  flex flex-col  h-screen w-full top-0 ">
-			<div className="h-full w-full relative">
-				<Image
-					priority
-					ref={projectRef}
-					className=" object-cover "
-					fill
-					sizes="100vw"
-					alt=""
-					src={img}
-				/>
+		<div ref={cardRef} className="h-screen w-full  ">
+			<div ref={projectRef} className="h-full w-full overflow-hidden">
+				<CustomImage width={2400} height={1350} src={img} alt="" />
 			</div>
 		</div>
 	);

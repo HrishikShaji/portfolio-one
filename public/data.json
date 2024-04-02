@@ -145,7 +145,7 @@
       {
         "id": 1,
         "title": "project one",
-        "img": "/assets/images/1.jpg",
+        "img": "https://images.unsplash.com/photo-1641579281152-e5d633aa3775?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "tools": "HTML/CSS/JAVASCRIPT",
         "year": "2015",
         "code": "",
@@ -154,7 +154,7 @@
       {
         "id": 2,
         "title": "project two",
-        "img": "/assets/images/2.jpg",
+        "img": "https://images.unsplash.com/photo-1625334666162-8ad10e7332d2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "tools": "HTML/CSS/JAVASCRIPT",
         "year": "2016",
         "code": "",
@@ -163,7 +163,7 @@
       {
         "id": 3,
         "title": "project three",
-        "img": "/assets/images/3.jpg",
+        "img": "https://images.unsplash.com/photo-1627549572210-62e7d8241309?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "tools": "HTML/CSS/JAVASCRIPT",
         "year": "2017",
         "code": "",
@@ -172,7 +172,7 @@
       {
         "id": 4,
         "title": "project four",
-        "img": "/assets/images/4.jpg",
+        "img": "https://images.unsplash.com/photo-1654854786038-a98ed2e1110c?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "tools": "HTML/CSS/JAVASCRIPT",
         "year": "2018",
         "code": "",
@@ -181,7 +181,7 @@
       {
         "id": 5,
         "title": "project five",
-        "img": "/assets/images/5.jpg",
+        "img": "https://images.unsplash.com/photo-1643304187561-022272be30ca?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         "tools": "HTML/CSS/JAVASCRIPT",
         "year": "2019",
         "code": "",
@@ -214,32 +214,32 @@
   "testimonials": [
     {
       "name": "person one",
-      "img": "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "img": "https://images.unsplash.com/photo-1630208232589-e42b29428b19?q=80&w=1969&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "desc": "Working with Anakin was an absolute pleasure! Their expertise in web development not only met but exceeded our expectations. They were responsive, attentive to detail, and delivered a website that perfectly encapsulated our brand's vision. We highly recommend Anakin for anyone seeking top-notch web development services."
     },
     {
       "name": "person two",
-      "img": "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "img": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "desc": "Anakin is a true professional in the field of web development. Their ability to translate our ideas into a functional and visually stunning website was impressive. They demonstrated excellent communication skills throughout the project, ensuring that our needs were met every step of the way. We couldn't be happier with the results!"
     },
     {
       "name": "person three",
-      "img": "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "img": "https://images.unsplash.com/photo-1639747280929-e84ef392c69a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "desc": "I can't speak highly enough of the experience I had working with Anakin. Their technical expertise and creative flair transformed our outdated website into a modern, user-friendly platform. Not only did they deliver on time and within budget, but they also provided valuable insights that enhanced the overall user experience. I wouldn't hesitate to recommend Anakin to anyone looking for top-quality web development services."
     },
     {
       "name": "person four",
-      "img": "https://images.pexels.com/photos/1681010/pexels-photo-1681010.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "img": "https://images.unsplash.com/photo-1614289371518-722f2615943d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "desc": "Choosing Anakin for our web development project was one of the best decisions we made. From the initial consultation to the final delivery, they demonstrated a deep understanding of our requirements and consistently exceeded our expectations. Their professionalism, attention to detail, and commitment to excellence are commendable. We're thrilled with the results and look forward to collaborating with Anakin on future projects."
     },
     {
       "name": "person five",
-      "img": "https://images.pexels.com/photos/874158/pexels-photo-874158.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "img": "https://images.unsplash.com/photo-1619420674819-da50b9f76950?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "desc": "Working with Anakin was a game-changer for our business. Their expertise in web development helped us revamp our online presence and attract more customers than ever before. Not only did they deliver a visually stunning website, but they also ensured that it was optimized for performance and user engagement. If you're looking for a talented and reliable web developer, look no further than Anakin."
     },
     {
       "name": "person six",
-      "img": "https://images.pexels.com/photos/4057649/pexels-photo-4057649.jpeg?auto=compress&cs=tinysrgb&w=600",
+      "img": "https://images.unsplash.com/photo-1584268889922-d9d85d63ba66?q=80&w=1935&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       "desc": "Anakin's dedication to excellence and mastery of web development truly set them apart. They took our project to new heights with their innovative solutions and meticulous attention to detail. Their ability to understand our unique requirements and translate them into a seamless digital experience was remarkable. Working with Anakin was not just a partnership, but a journey towards achieving our online goals. We are immensely grateful for their expertise and highly recommend them to anyone seeking exceptional web development services."
     }
   ]

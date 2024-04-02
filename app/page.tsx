@@ -1,6 +1,6 @@
-import Hero from "./components/Hero";
 import data from "@/public/data.json";
 import dynamic from "next/dynamic";
+import Hero from "./components/Hero";
 
 const Intro = dynamic(() => import("./components/Intro"));
 const About = dynamic(() => import("./components/About"));
