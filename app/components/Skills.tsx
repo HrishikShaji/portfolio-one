@@ -1,17 +1,15 @@
 "use client";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { Headings } from "./Headings";
 import { skills } from "@/public/data";
+import { useIsMount } from "@/hooks/useIsMount";
 
 const Skills = () => {
   const skillRefs = useRef<(HTMLDivElement | null)[]>([]);
   const overlayRefs = useRef<(HTMLDivElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isMounted, setIsMounted] = useState(false);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const { isMounted } = useIsMount();
 
   useLayoutEffect(() => {
     const animate = async () => {

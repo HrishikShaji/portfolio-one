@@ -1,6 +1,7 @@
 "use client";
 
-import { ReactNode, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useIsMount } from "@/hooks/useIsMount";
+import { ReactNode, useLayoutEffect, useRef } from "react";
 
 interface MarqueeProps {
   speed: number;
@@ -12,11 +13,8 @@ export const Marquee: React.FC<MarqueeProps> = ({ children, speed }) => {
   const secondText = useRef(null);
   const slider = useRef(null);
   const directionRef = useRef(-1); // Use useRef to store direction value
-  const [isMounted, setIsMounted] = useState(false);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const { isMounted } = useIsMount();
 
   useLayoutEffect(() => {
     const animate = async () => {

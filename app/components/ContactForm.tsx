@@ -1,20 +1,17 @@
 "use client";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useIsMount } from "@/hooks/useIsMount";
+import { useLayoutEffect, useRef } from "react";
 
 export const ContactForm = () => {
-  const [isMounted, setIsMounted] = useState(false);
   const contactRefs = useRef<
     (HTMLInputElement | HTMLTextAreaElement | HTMLButtonElement | null)[]
   >([]);
 
   const containerRef = useRef<HTMLFormElement>(null);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const { isMounted } = useIsMount();
 
   useLayoutEffect(() => {
-    if (!isMounted) return;
     const animate = async () => {
       const gsap = (await import("gsap")).default;
       const ScrollTrigger = (await import("gsap/dist/ScrollTrigger")).default;
@@ -44,8 +41,9 @@ export const ContactForm = () => {
 
       return () => ctx.revert();
     };
-
-    animate();
+    if (isMounted) {
+      animate();
+    }
   }, [isMounted]);
   return (
     <form ref={containerRef} className="flex flex-col gap-3 items-center ">

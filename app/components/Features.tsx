@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { features } from "@/public/data";
+import { useIsMount } from "@/hooks/useIsMount";
 
 const Features = () => {
   const pinRef = useRef<HTMLDivElement>(null);
@@ -9,11 +10,8 @@ const Features = () => {
   const targetRef = useRef<HTMLDivElement>(null);
   const featureRefs = useRef<(HTMLHeadingElement | null)[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isMounted, setIsMounted] = useState(false);
 
-  useEffect(() => {
-    setIsMounted(true);
-  }, []);
+  const { isMounted } = useIsMount();
 
   useLayoutEffect(() => {
     const animate = async () => {
