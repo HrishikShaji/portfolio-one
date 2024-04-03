@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Headings } from "./Headings";
 import { skills } from "@/public/data";
 import { useIsMount } from "@/hooks/useIsMount";
@@ -14,29 +14,47 @@ const Skills = () => {
 
   const { isMounted } = useIsMount();
 
+  const positions = [
+    { x: -110, y: 0 },
+    { x: -110, y: 0 },
+    { x: -110, y: 0 },
+    { x: -110, y: 0 },
+    { x: 110, y: 0 },
+    { x: 110, y: 0 },
+    { x: 110, y: 0 },
+    { x: 0, y: -110 },
+    { x: 0, y: -110 },
+    { x: -110, y: 0 },
+    { x: -110, y: 0 },
+    { x: -110, y: 0 },
+    { x: 110, y: 0 },
+    { x: 110, y: 0 },
+    { x: 110, y: 0 },
+    { x: 0, y: -110 },
+  ];
+  const indexes = [0, 1, 2, 3, 7, 6, 5, 4, 8, 9, 10, 11, 15, 14, 13, 12];
   useIsomorphicLayoutEffect(() => {
     const animate = async () => {
-      const positions = [
-        { x: -110, y: 0 },
-        { x: -110, y: 0 },
-        { x: -110, y: 0 },
-        { x: -110, y: 0 },
-        { x: 110, y: 0 },
-        { x: 110, y: 0 },
-        { x: 110, y: 0 },
-        { x: 0, y: -110 },
-        { x: 0, y: -110 },
-        { x: -110, y: 0 },
-        { x: -110, y: 0 },
-        { x: -110, y: 0 },
-        { x: 110, y: 0 },
-        { x: 110, y: 0 },
-        { x: 110, y: 0 },
-        { x: 0, y: -110 },
-      ];
-      const indexes = [0, 1, 2, 3, 7, 6, 5, 4, 8, 9, 10, 11, 15, 14, 13, 12];
       let ctx = gsap.context(() => {
-        timeline.current = gsap.timeline();
+        timeline.current = gsap.timeline({
+          scrollTrigger: {
+            trigger: containerRef.current,
+            pin: containerRef.current,
+            start: "top top",
+            end: "+=3000",
+            scrub: true,
+            onLeave: function (self) {
+              let start = self.start;
+              self.scroll(self.start);
+              self.disable();
+              if (self.animation) {
+                self.animation.progress(1);
+                ScrollTrigger.refresh();
+                window.scrollTo(0, start);
+              }
+            },
+          },
+        });
         indexes.forEach((index) => {
           if (!timeline.current) return;
           timeline.current.fromTo(
@@ -50,25 +68,6 @@ const Skills = () => {
               yPercent: 0,
             },
           );
-        });
-
-        ScrollTrigger.create({
-          animation: timeline.current,
-          trigger: containerRef.current,
-          pin: containerRef.current,
-          start: "top top",
-          end: "+=3000",
-          scrub: true,
-          onLeave: function (self) {
-            let start = self.start;
-            self.scroll(self.start);
-            self.disable();
-            if (self.animation) {
-              self.animation.progress(1);
-              ScrollTrigger.refresh();
-              window.scrollTo(0, start);
-            }
-          },
         });
       }, containerRef);
 

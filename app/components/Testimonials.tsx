@@ -1,11 +1,11 @@
 "use client";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 import { Headings } from "./Headings";
 import { TestimonialCard } from "./TestimonialCard";
 import { testimonials } from "@/public/data";
 import { useIsMount } from "@/hooks/useIsMount";
 import useIsomorphicLayoutEffect from "@/hooks/useIsomorphicLayoutEffect";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 
 const Testimonials = () => {
   const testimonialRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -15,24 +15,21 @@ const Testimonials = () => {
   const { isMounted } = useIsMount();
 
   useIsomorphicLayoutEffect(() => {
-    const animate = async () => {
+    const animate = () => {
       let ctx = gsap.context(() => {
-        if (!containerRef.current) return;
-
-        timeline.current = gsap.timeline();
+        timeline.current = gsap.timeline({
+          scrollTrigger: {
+            trigger: containerRef.current,
+            pin: containerRef.current,
+            start: "top top",
+            end: "+=3000",
+            scrub: true,
+          },
+        });
 
         testimonialRefs.current.forEach((el) => {
           if (!timeline.current) return;
           timeline.current.fromTo(el, { xPercent: 300 }, { xPercent: 0 });
-        });
-
-        ScrollTrigger.create({
-          animation: timeline.current,
-          trigger: containerRef.current,
-          pin: containerRef.current,
-          start: "top top",
-          end: "+=3000",
-          scrub: true,
         });
       }, containerRef);
 

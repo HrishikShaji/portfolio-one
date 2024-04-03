@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { features } from "@/public/data";
 import { useIsMount } from "@/hooks/useIsMount";
 import useIsomorphicLayoutEffect from "@/hooks/useIsomorphicLayoutEffect";
-import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { gsap } from "@/lib/gsap";
 
 const Features = () => {
   const pinRef = useRef<HTMLDivElement>(null);
@@ -19,11 +19,13 @@ const Features = () => {
   useIsomorphicLayoutEffect(() => {
     const animate = async () => {
       let ctx = gsap.context(() => {
-        ScrollTrigger.create({
-          trigger: targetRef.current,
-          pin: pinRef.current,
-          start: "top top",
-          end: "bottom bottom",
+        gsap.to(pinRef.current, {
+          scrollTrigger: {
+            trigger: targetRef.current,
+            pin: pinRef.current,
+            start: "top top",
+            end: "bottom bottom",
+          },
         });
         gsap.fromTo(
           textRef.current,
@@ -54,6 +56,7 @@ const Features = () => {
                 start: `top 500px`,
                 end: `top ${top}px`,
                 scrub: true,
+                markers: true,
               },
             },
           );
