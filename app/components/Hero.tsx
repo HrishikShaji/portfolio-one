@@ -14,7 +14,7 @@ const Hero = () => {
 					))}
 				</Marquee>
 			))}
-			<div className="absolute bottom-20 left-20 flex flex-col gap-2 text-8xl text-red-600  rounded-3xl">
+			<div className="absolute bottom-20 left-20 flex flex-col gap-2 text-8xl text-red-600">
 				<SplitText text={`ANAKIN`} />
 				<SplitText text={`SKYWALKER.`} />
 				<SplitText text="WEB DEVELOPER." />

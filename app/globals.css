@@ -5,21 +5,6 @@
 .custom-clip {
   clip-path: polygon(0 0%, 100% 0, 100% 95%, 0 95%);
 }
-
-@layer base {
-  .font-outline-2 {
-    -webkit-text-stroke: 2px white;
-  }
-  .font-outline-4 {
-    -webkit-text-stroke: 4px white;
-  }
-}
-.split-parent {
-  overflow: hidden;
-}
-.split-child {
-  display: inline-block;
-}
 .smooth {
   font-smooth: always !important;
   -webkit-font-smoothing: antialiased !important;
@@ -27,14 +12,6 @@
   transform: perspective(1px) translateZ(0);
   backface-visibility: hidden;
 }
-
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
 .split-child {
   overflow: hidden;
 }
