@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 interface TimelineRowProps {
 	i: number;
@@ -18,7 +18,7 @@ export const TimelineRow: React.FC<TimelineRowProps> = ({
 }) => {
 	const overlayRef = useRef<HTMLDivElement>(null);
 	const containerRef = useRef<HTMLDivElement>(null);
-	useLayoutEffect(() => {
+	useEffect(() => {
 		const animate = async () => {
 			const gsap = (await import("gsap")).default;
 			const ScrollTrigger = (await import("gsap/dist/ScrollTrigger")).default;

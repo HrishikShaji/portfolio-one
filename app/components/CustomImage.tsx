@@ -13,6 +13,7 @@ export const CustomImage: React.FC<CustomImageProps> = ({
 	width,
 	height,
 }) => {
+	console.log("rendered");
 	return (
 		<Image
 			className="  object-cover  "
